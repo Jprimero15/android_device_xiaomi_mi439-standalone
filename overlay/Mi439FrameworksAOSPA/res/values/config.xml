@@ -68,4 +68,7 @@
         <item>/system_ext/priv-app/SystemUI/SystemUI.apk</item>
     </string-array>
 
+    <!-- True if the device supports Sustained Performance Mode-->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
 </resources>
