@@ -43,8 +43,6 @@ on init
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     
-   write /dev/stune/top-app/schedtune.colocate 1
-    
 on boot
    # Add a cpuset for the camera daemon
    # We want all cores for camera
@@ -120,6 +118,11 @@ on enable-low-power
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 20
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 30
+
+    # Set default schedTune value for foreground/top-app
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
 
     # Turn off scheduler boost at the end
     write /proc/sys/kernel/sched_boost 0
