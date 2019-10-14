@@ -27,4 +27,4 @@ odm						/odm			ext4	ro								wait,logical,first_stage_mount
 /devices/platform/soc/78db000.usb/msm_hsusb_host*     auto	auto    defaults							wait,voldmanaged=usb:auto
 
 # ZRAM
-/dev/block/zram0                                none                    swap    defaults                                                        zramsize=1073741824,max_comp_streams=8
+/dev/block/zram0                                none                    swap    defaults                                                        zramsize=1073741824,max_comp_streams=8,zram_loopback_path=/data/per_boot/zram_swap,zram_loopback_size=512M
