@@ -400,6 +400,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Zram
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.zram.first_wb_delay_mins=180 \
+    ro.zram.mark_idle_delay_mins=60 \
+    ro.zram.periodic_wb_delay_hours=24
+
 # Build MITHORIUM_PRODUCT_PACKAGES
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
 
