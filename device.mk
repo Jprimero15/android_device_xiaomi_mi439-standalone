@@ -219,6 +219,11 @@ PRODUCT_COPY_FILES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     XiaomiParts
 
+# Offline charger
+MITHORIUM_PRODUCT_PACKAGES += \
+    charger_res_images \
+    product_charger_res_images
+
 # OMX
 MITHORIUM_PRODUCT_PACKAGES += \
     libc2dcolorconvert \
