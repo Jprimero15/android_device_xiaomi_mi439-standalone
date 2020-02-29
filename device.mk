@@ -109,6 +109,9 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -118,11 +121,6 @@ PRODUCT_PACKAGES += \
     e2fsck_ramdisk \
     tune2fs_ramdisk \
     resize2fs_ramdisk
-
-# Enable wider inodes for project quotas
-# Later, replace with $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
-PRODUCT_QUOTA_PROJID := 1
-PRODUCT_PRODUCT_PROPERTIES += ro.emulated_storage.projid=1
 
 # Fingerprint
 PRODUCT_PACKAGES += \
