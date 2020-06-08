@@ -26,3 +26,4 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 vendor.qti.hardware.radio.atcmdfwd::IAtCmdFwd                   u:object_r:vendor_hal_atfwd_hwservice:s0
+vendor.qti.memory.pasrmanager::IPasrManager                     u:object_r:hal_pasrmanager_memory_hwservice:s0
