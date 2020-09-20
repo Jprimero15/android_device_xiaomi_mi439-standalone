@@ -15,7 +15,6 @@ cc_library_shared {
         "liblog",
         "libqtivibratoreffect",
         "libqtivibratoreffectoffload",
-        "libsoc_helper",
         "libbinder_ndk",
         "android.hardware.vibrator-V2-ndk",
     ],
