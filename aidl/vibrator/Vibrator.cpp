@@ -546,7 +546,6 @@ ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
     *_aidl_return = IVibrator::CAP_ON_CALLBACK;
 
     if (ledVib.mDetected) {
-        *_aidl_return |= IVibrator::CAP_PERFORM_CALLBACK;
         return ledVib.getCapabilities(_aidl_return);
     }
 
