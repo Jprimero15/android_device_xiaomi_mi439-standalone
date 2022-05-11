@@ -129,6 +129,8 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := erofs) \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
+BOARD_EROFS_PCLUSTER_SIZE := 65536
+
 BOARD_USES_METADATA_PARTITION := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
