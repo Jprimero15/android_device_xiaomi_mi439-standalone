@@ -1,6 +1,7 @@
 # Camera
 persist.vendor.camera.HAL3.enabled=1
 persist.vendor.camera.stats.test=5
+persist.vendor.camera.perflock.enable=0
 
 # Display
 debug.sf.enable_hwc_vds=1
