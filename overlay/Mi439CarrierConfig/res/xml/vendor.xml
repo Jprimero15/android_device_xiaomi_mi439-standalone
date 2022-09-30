@@ -114,6 +114,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <!-- PA: Allow VoLTE and WFC by default -->
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+
+        <int name="lte_plus_threshold_bandwidth_khz_int" value="0"/>
     </carrier_config>
 
     <carrier_config mcc="001" mnc="01">
