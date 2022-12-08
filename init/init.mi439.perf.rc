@@ -19,6 +19,12 @@ on enable-low-power
     write /dev/cpuset/restricted/cpus "4-7"
     write /dev/cpuset/system-background/cpus "4-7"
 
+    # IRQ Tuning
+    # IRQ 46: kgsl_3d0_irq
+    # IRQ 47: MDSS
+    write /proc/irq/46/smp_affinity_list 2
+    write /proc/irq/47/smp_affinity_list 3
+
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
