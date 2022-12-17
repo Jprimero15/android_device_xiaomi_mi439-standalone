@@ -94,12 +94,6 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qcom.usb.sh",
-    src: "bin/init.qcom.usb.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qti.dcvs.sh",
     src: "bin/init.qti.dcvs.sh",
     vendor: true,
