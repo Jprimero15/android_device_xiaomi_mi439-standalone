@@ -14,6 +14,9 @@ TARGET_KERNEL_VERSION ?= 4.9
 # Platform
 TARGET_BOARD_PLATFORM ?= msm8937
 
+# Aosp BT
+TARGET_USE_QTI_BT_STACK := false
+
 ifeq ($(TARGET_BOARD_PLATFORM),msm8953)
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.activity_recognition=msm8937 \
@@ -363,6 +366,9 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := bt
 
 # Ramdisk
 MITHORIUM_PRODUCT_PACKAGES += \
