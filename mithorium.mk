@@ -366,7 +366,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # QTI Components
-TARGET_COMMON_QTI_COMPONENTS := bt
+TARGET_COMMON_QTI_COMPONENTS += \
+    bt \
+    usb
 
 # Ramdisk
 MITHORIUM_PRODUCT_PACKAGES += \
