@@ -165,3 +165,6 @@ ro.fastbootd.available=true
 
 # System
 persist.sys.binary_xml=false
+
+# Disable Skia tracing
+debug.hwui.skia_atrace_enabled=false
