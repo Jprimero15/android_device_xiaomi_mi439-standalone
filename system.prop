@@ -19,7 +19,6 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-ril.subscription.types=RUIM
 DEVICE_PROVISIONED=1
 
 #Disable Skip Validate
@@ -163,11 +162,6 @@ ro.bluetooth.a2dp_offload.supported=false
 
 # Fastbootd
 ro.fastbootd.available=true
-
-# IMS
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
 
 # System
 persist.sys.binary_xml=false

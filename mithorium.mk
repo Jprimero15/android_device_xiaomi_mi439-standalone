@@ -257,11 +257,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/)
 
-# IPACM
-MITHORIUM_PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
-
 # Keymaster HAL
 ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -333,10 +328,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# Network
-MITHORIUM_PRODUCT_PACKAGES += \
-    android.system.net.netd@1.1.vendor
-
 # Perf
 MITHORIUM_PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2 \
@@ -355,7 +346,6 @@ PRODUCT_COPY_FILES += \
 
 # QMI
 MITHORIUM_PRODUCT_PACKAGES += \
-    libjson \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti \
@@ -368,6 +358,7 @@ PRODUCT_COPY_FILES += \
 TARGET_COMMON_QTI_COMPONENTS += \
     bt \
     gps \
+    telephony \
     usb
 
 # Ramdisk
@@ -397,14 +388,6 @@ endif
 
 # RIL
 MITHORIUM_PRODUCT_PACKAGES += \
-    android.hardware.radio@1.4.vendor \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.0.vendor \
-    android.hardware.secure_element@1.1.vendor \
-    android.hardware.secure_element@1.2.vendor \
-    librmnetctl \
     libxml2
 
 # Remove packages
@@ -438,13 +421,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
 # Vibrator
 MITHORIUM_PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
-
-# Whitelisted app
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/telephony_product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/telephony_product_privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/telephony_system-ext_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
 
 # Wifi
 MITHORIUM_PRODUCT_PACKAGES += \
