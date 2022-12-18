@@ -407,6 +407,10 @@ MITHORIUM_PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Remove packages
+MITHORIUM_PRODUCT_PACKAGES += \
+    RemovePackages
+
 # Sensors
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
