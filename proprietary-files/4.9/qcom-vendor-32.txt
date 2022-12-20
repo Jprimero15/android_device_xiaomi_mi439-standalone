@@ -92,7 +92,6 @@ vendor/lib/libOmxSwVencMpeg4.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libmmosal.so
 vendor/lib/libswvdec.so
 vendor/lib/libvpplibrary.so
 vendor/lib/libwfdcommonutils_proprietary.so
