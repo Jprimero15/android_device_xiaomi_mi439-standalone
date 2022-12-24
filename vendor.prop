@@ -211,3 +211,6 @@ ro.telephony.default_network=33,33
 telephony.lteOnCdmaDevice=1
 
 ### END system_vendor_config_prop
+
+# LMK
+ro.vendor.lmk.force_inkernel_lmk=true
