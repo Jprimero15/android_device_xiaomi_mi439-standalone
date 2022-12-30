@@ -99,7 +99,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     libaudiopreprocessing \
     libaudioroute \
-    libaacwrapper \
     libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -192,11 +191,10 @@ MITHORIUM_PRODUCT_PACKAGES += \
     memtrack.$(TARGET_BOARD_PLATFORM)
 
 MITHORIUM_PRODUCT_PACKAGES += \
-    libdisplayconfig \
     libgralloc.qti \
-    libqdMetaData \
     libtinyxml \
     vendor.display.config@1.11.vendor \
+    vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor
 
 # DRM
@@ -345,7 +343,8 @@ TARGET_COMMON_QTI_COMPONENTS += \
     gps \
     perf \
     telephony \
-    usb
+    usb \
+    wfd
 
 # Ramdisk
 MITHORIUM_PRODUCT_PACKAGES += \
