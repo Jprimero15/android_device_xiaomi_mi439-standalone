@@ -78,7 +78,6 @@ endif
 
 # ANT
 MITHORIUM_PRODUCT_PACKAGES += \
-    AntHalService \
     com.dsi.ant@1.0.vendor
 
 # Audio
