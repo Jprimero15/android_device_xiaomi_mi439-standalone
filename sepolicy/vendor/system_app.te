@@ -1,3 +1,11 @@
 allow system_app fm_radio_device:chr_file r_file_perms;
+allow system_app proc_pagetypeinfo:file r_file_perms;
+allow system_app proc_vmallocinfo:file r_file_perms;
+allow system_app sysfs_zram:dir r_dir_perms;
+allow system_app sysfs_zram:file r_file_perms;
+
+binder_call(system_app, hal_power_default)
+binder_call(system_app, hal_vibrator_default)
+binder_call(system_app, hal_wifi_supplicant_default)
 
 get_prop(system_app, vendor_persist_camera_prop)
