@@ -98,6 +98,13 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdmmservice.so
 
+# Perf
+vendor/lib/libqti-perfd-client.so
+vendor/lib/vendor.qti.hardware.perf@1.0.so
+vendor/lib/vendor.qti.hardware.perf@2.0.so
+vendor/lib/vendor.qti.hardware.perf@2.1.so
+vendor/lib/vendor.qti.hardware.perf@2.2.so
+
 # QMI
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_common_so.so
