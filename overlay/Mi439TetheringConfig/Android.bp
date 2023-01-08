@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439TetheringConfig",
-    sdk_version: "current",
     vendor: true,
 }

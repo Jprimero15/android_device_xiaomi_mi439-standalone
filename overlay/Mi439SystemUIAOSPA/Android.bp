@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439SystemUIAOSPA",
-    sdk_version: "current",
     vendor: true,
 }

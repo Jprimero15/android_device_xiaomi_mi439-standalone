@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "XiaomiOlive",
-    sdk_version: "current",
     vendor: true,
 }

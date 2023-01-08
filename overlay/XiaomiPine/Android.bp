@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "XiaomiPine",
-    sdk_version: "current",
     vendor: true,
 }

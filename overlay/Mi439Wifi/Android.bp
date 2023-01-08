@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439Wifi",
-    sdk_version: "current",
     vendor: true,
 }

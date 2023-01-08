@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439Haptic",
-    sdk_version: "current",
     vendor: true,
 }
