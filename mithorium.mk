@@ -210,8 +210,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 # FM
 MITHORIUM_PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+    RevampedFMRadio \
+    libqcomfmjni
 
 # Gatekeeper HAL
 ifneq ($(TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER),true)
