@@ -5,6 +5,7 @@
 //
 
 runtime_resource_overlay {
+    aaptflags: ["--keep-raw-values"],
     name: "Mi439CarrierConfig",
     vendor: true,
 }
