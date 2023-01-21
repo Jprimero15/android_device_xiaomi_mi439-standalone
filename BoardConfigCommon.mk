@@ -29,10 +29,31 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true androidboot.init_fatal_reboot_target=recovery printk.devkmsg=on
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0
+BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
+BOARD_BOOTIMG_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_PREBUILT_DTBOIMAGE := # blank
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CONFIG := sdm439-perf_defconfig
+KERNEL_LLVM_SUPPORT := true
+KERNEL_CUSTOM_LLVM := true
+KERNEL_SD_LLVM_SUPPORT := false
 TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
+
+# Android Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+
+# Asserts
+TARGET_OTA_ASSERT_DEVICE := pine,olive,olivelite,olivewood,olives,mi439,Mi439
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -80,6 +101,7 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Display
+TARGET_SCREEN_DENSITY := 320
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
@@ -114,9 +136,7 @@ DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_k$(TARGET_KERNEL_VERSION).xml
 ifneq ($(TARGET_HAS_NO_CONSUMERIR),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest/consumerir.xml
 endif
-ifneq ($(TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest/gatekeeper.xml
-endif
 ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest/keymaster.xml
 endif
@@ -127,6 +147,48 @@ TARGET_INIT_VENDOR_LIB ?= //$(COMMON_PATH):init_xiaomi_mithorium
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_mithorium
 
 # Partitions
+SSI_PARTITIONS := product system system_ext
+TREBLE_PARTITIONS := odm vendor
+ALL_PARTITIONS := $(SSI_PARTITIONS) $(TREBLE_PARTITIONS)
+
+$(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
+    $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
+
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+BOARD_USES_METADATA_PARTITION := true
+
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1966587904 # 1966604288 - 16384
+
+# Partitions - dynamic
+BOARD_SUPER_PARTITION_BLOCK_DEVICES := cust system vendor
+BOARD_SUPER_PARTITION_METADATA_DEVICE := system
+BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE := 536870912
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
+BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1073741824
+BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE) )
+
+BOARD_SUPER_PARTITION_GROUPS := mi439_dynpart
+BOARD_MI439_DYNPART_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
+BOARD_MI439_DYNPART_PARTITION_LIST := $(ALL_PARTITIONS)
+
+# Partitions - reserved size
+$(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := -1))
+$(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := 5120))
+
+$(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 209715200)) # 200 MB
+$(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
@@ -139,6 +201,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 TARGET_SUPPORT_HAL1 := false
 
 # Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
 TARGET_USES_INTERACTION_BOOST := true
 
 # Platform
@@ -156,11 +219,20 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor_k4.19.prop
 endif
 
 # Recovery
+BOARD_INCLUDE_RECOVERY_DTBO := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
+# Security patch level
+VENDOR_SECURITY_PATCH := 2021-07-01
+
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/biometrics/sepolicy
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 ifeq (true,$(call math_lt,$(PRODUCT_SHIPPING_API_LEVEL),28))
@@ -192,3 +264,4 @@ include vendor/xiaomi/mithorium-common/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 include vendor/xiaomi/mithorium-common-4.19/BoardConfigVendor.mk
 endif
+include vendor/xiaomi/Mi439/BoardConfigVendor.mk

@@ -4,6 +4,14 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+// fstab
+
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "etc/fstab.qcom",
+    vendor: true,
+}
+
 // Init scripts
 
 prebuilt_etc {
@@ -37,6 +45,13 @@ prebuilt_etc {
 prebuilt_etc {
     name: "init.xiaomi.rc",
     src: "etc/init.xiaomi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.xiaomi.device.rc",
+    src: "etc/init.xiaomi.device.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -102,5 +117,11 @@ sh_binary {
 sh_binary {
     name: "init.qti.qseecomd.sh",
     src: "bin/init.qti.qseecomd.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.xiaomi.device.sh",
+    src: "bin/init.xiaomi.device.sh",
     vendor: true,
 }

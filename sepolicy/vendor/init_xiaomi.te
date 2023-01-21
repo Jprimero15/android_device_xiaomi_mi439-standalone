@@ -12,4 +12,7 @@ allow init_xiaomi vendor_toolbox_exec:file rx_file_perms;
 allow init_xiaomi fdt_model:file r_file_perms;
 
 # Allow to set prop
+set_prop(init_xiaomi, camera_prop);
+set_prop(init_xiaomi, vendor_audio_prop);
+set_prop(init_xiaomi, vendor_hvdcp_opti_prop);
 set_prop(init_xiaomi, vendor_xiaomi_prop)

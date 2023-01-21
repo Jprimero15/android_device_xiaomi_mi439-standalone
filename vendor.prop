@@ -177,6 +177,9 @@ persist.vendor.bluetooth.modem_nv_support=true
 #property to enable narrow search range for video encoding
 vendor.vidc.enc.narrow.searchrange=1
 
+# Xiaomi Mi439 - Camera
+persist.vendor.camera.stats.test=5
+
 #force HAL1 for below packages
 vendor.camera.hal1.packagelist=com.facebook.katana,com.facebook.orca,com.instagram.android,com.viber.voip,com.whatsapp
 
@@ -191,6 +194,9 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.hmdglobal.app.camera
 persist.vendor.camera.privapp.list=org.codeaurora.snapcam
 persist.camera.privapp.list=org.codeaurora.snapcam
 
+# Xiaomi Mi439 - Sensors
+ro.vendor.sensors.pseudo_gyro=true
+
 #sensors-hal debug
 persist.vendor.debug.sensors.hal=i
 
@@ -204,6 +210,10 @@ persist.vendor.camera.hal1.enable=1
 
 #PAN-23114.cdzk.2020.12.21.add expose camera logicId3 switch for vts test.
 persist.vendor.camera.expose.logicId3=1
+
+# Xiaomi Mi439 - SoC
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SDM439
 
 ### END Unlabeled vendor props
 

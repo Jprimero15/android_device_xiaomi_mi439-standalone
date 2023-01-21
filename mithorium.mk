@@ -8,11 +8,35 @@
 # Userspace Reboot
 $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 
+# Dalvik heap
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
 # Kernel
-TARGET_KERNEL_VERSION ?= 4.9
+TARGET_KERNEL_VERSION := 4.9
 
 # Platform
-TARGET_BOARD_PLATFORM ?= msm8937
+TARGET_BOARD_PLATFORM := msm8937
+
+# Cryptfshw
+TARGET_EXCLUDE_CRYPTFSHW := true
+
+# Gatekeeper
+TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER := true
+
+# Keymaster
+TARGET_USES_DEVICE_SPECIFIC_KEYMASTER := true
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1440
+TARGET_SCREEN_WIDTH := 720
+
+# Dynamic Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 28
 
 # Aosp BT
 TARGET_USE_QTI_BT_STACK := false
@@ -25,7 +49,13 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
 
 MITHORIUM_PRODUCT_PACKAGES += \
-    AOSPAOliveFrameworks
+    AOSPAOliveFrameworks \
+    xiaomi_pine_overlay \
+    xiaomi_pine_overlay_lineage \
+    xiaomi_olive_overlay \
+    xiaomi_olive_overlay_lineage \
+    xiaomi_olive_overlay_Snap \
+    xiaomi_olive_overlay_SystemUI
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -72,12 +102,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.print.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
-
-ifneq ($(TARGET_HAS_NO_CONSUMERIR),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
-endif
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_olive/android.hardware.fingerprint.xml
 
 # ANT
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -127,7 +154,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -145,7 +172,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
+    android.hardware.camera.provider@2.4-service \
+    camera.msm8937
 
 MITHORIUM_PRODUCT_PACKAGES += \
     libstdc++.vendor
@@ -209,6 +237,11 @@ MITHORIUM_PRODUCT_PACKAGES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     fastbootd
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mi439 \
+    android.hardware.biometrics.fingerprint@2.2
+
 # FM
 MITHORIUM_PRODUCT_PACKAGES += \
     RevampedFMRadio \
@@ -221,6 +254,9 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0.vendor
 endif
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor
+
 
 # GPS / Location
 include $(LOCAL_PATH)/gps/gps_vendor_product.mk
@@ -265,6 +301,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0.vendor
 endif
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor
 
 # Lights
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -334,6 +372,8 @@ TARGET_COMMON_QTI_COMPONENTS += \
 
 # Ramdisk
 MITHORIUM_PRODUCT_PACKAGES += \
+    fstab.qcom_ramdisk \
+    init.xiaomi.device.rc \
     init.qcom.rc \
     init.olive.usb.rc \
     init.recovery.qcom.rc \
@@ -347,7 +387,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qti.qseecomd.sh
+    init.qti.qseecomd.sh \
+    init.xiaomi.device.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom
@@ -367,6 +408,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 # Sensors
 MITHORIUM_PRODUCT_PACKAGES += \
+    $(LOCAL_PATH)/configs/sensors/pine___def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/pine___def_qcomdev.conf \
+    $(LOCAL_PATH)/configs/sensors/olive__def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/olive__def_qcomdev.conf \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
@@ -423,6 +466,17 @@ ifeq ($(TARGET_KERNEL_VERSION),4.9)
 $(call inherit-product, vendor/xiaomi/mithorium-common/mithorium-common-vendor.mk)
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 $(call inherit-product, vendor/xiaomi/mithorium-common-4.19/mithorium-common-4.19-vendor.mk)
+endif
+$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
+
+# EXTRA: MiuiCamera
+ifneq ($(wildcard vendor/miuicamera/config.mk),)
+$(call inherit-product, vendor/miuicamera/config.mk)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/miuicam/pine.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/pine.xml \
+    $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olive.xml \
+    $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivelite.xml \
+    $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivewood.xml
 endif
 
 # Extra
