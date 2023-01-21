@@ -6,36 +6,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-function blob_fixup() {
-    case "${1}" in
-        vendor/bin/sensors.qti.pine)
-            sed -i 's|sensor_def_|pine___def_|g' "${2}"
-            ;;
-        vendor/bin/sensors.qti.olive)
-            sed -i 's|sensor_def_|olive__def_|g' "${2}"
-            ;;
-        vendor/lib/libmmcamera2_sensor_modules.so)
-            # Allow up to 0xFF CameraModuleConfig nodes on camera_config.xml
-            sed -i -e 's|\x68\x1e\x15\x28|\x68\x1e\xff\x28|g' "${2}"
-            PATTERN_FOUND=$(hexdump -ve '1/1 "%.2x"' "${2}" | grep -E -o "681eff28" | wc -l)
-            if [ $PATTERN_FOUND != "1" ]; then
-                echo "Critical blob modification weren't applied on ${2}!"
-                exit;
-            fi
-            ;;
-    esac
-}
-
-# If we're being sourced by the common script that we called,
-# stop right here. No need to go down the rabbit hole.
-if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
-    return
-fi
-
 set -e
 
 export DEVICE=Mi439
-export DEVICE_COMMON=mithorium-common
 export VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
@@ -54,8 +27,6 @@ source "${HELPER}"
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-ONLY_COMMON=
-ONLY_TARGET=
 KERNEL_4_19=
 KANG=
 SECTION=
@@ -64,14 +35,6 @@ SETUP_MAKEFILES_ARGS=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --only-common )
-                ONLY_COMMON=true
-                SETUP_MAKEFILES_ARGS+=" ${1}"
-                ;;
-        --only-target )
-                ONLY_TARGET=true
-                SETUP_MAKEFILES_ARGS+=" ${1}"
-                ;;
         --kernel-4.19 )
                 KERNEL_4_19=true
                 SETUP_MAKEFILES_ARGS+=" ${1}"
@@ -97,9 +60,25 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-if [ "${KERNEL_4_19}" == "true" ]; then
-    DEVICE_COMMON="mithorium-common-4.19"
-fi
+function blob_fixup() {
+    case "${1}" in
+        vendor/bin/sensors.qti.pine)
+            sed -i 's|sensor_def_|pine___def_|g' "${2}"
+            ;;
+        vendor/bin/sensors.qti.olive)
+            sed -i 's|sensor_def_|olive__def_|g' "${2}"
+            ;;
+        vendor/lib/libmmcamera2_sensor_modules.so)
+            # Allow up to 0xFF CameraModuleConfig nodes on camera_config.xml
+            sed -i -e 's|\x68\x1e\x15\x28|\x68\x1e\xff\x28|g' "${2}"
+            PATTERN_FOUND=$(hexdump -ve '1/1 "%.2x"' "${2}" | grep -E -o "681eff28" | wc -l)
+            if [ $PATTERN_FOUND != "1" ]; then
+                echo "Critical blob modification weren't applied on ${2}!"
+                exit;
+            fi
+            ;;
+    esac
+}
 
 function blob_fixup() {
     case "${1}" in
@@ -115,37 +94,20 @@ function blob_fixup() {
     esac
 }
 
-if [ -z "${ONLY_TARGET}" ]; then
-    # Initialize the helper for common device
-    setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+# Initialize the helper for device
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
-    if [ "${KERNEL_4_19}" != "true" ]; then
-        # Kernel 4.9
-        extract "${MY_DIR}/proprietary-files/4.9/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-        extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-        extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    else
-        # Kernel 4.19
-        extract "${MY_DIR}/proprietary-files/4.19/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-        extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-        extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    fi
-fi
-
-if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
-    # Reinitialize the helper for device
-    source "${MY_DIR}/../${DEVICE}/extract-files.sh"
-    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
-
-    extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-fi
-
-if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE_SPECIFIED_COMMON}/proprietary-files.txt" ]; then
-    # Reinitialize the helper for device specified common
-    source "${MY_DIR}/../${DEVICE_SPECIFIED_COMMON}/extract-files.sh"
-    setup_vendor "${DEVICE_SPECIFIED_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
-
-    extract "${MY_DIR}/../${DEVICE_SPECIFIED_COMMON}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+if [ "${KERNEL_4_19}" != "true" ]; then
+    # Kernel 4.9
+    extract "${MY_DIR}/proprietary-files/4.9/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+else
+    # Kernel 4.19
+    extract "${MY_DIR}/proprietary-files/4.19/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 
 "${MY_DIR}/setup-makefiles.sh" ${SETUP_MAKEFILES_ARGS}

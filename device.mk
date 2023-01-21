@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2017-2022 The LineageOS Project
-# Copyright (C) 2022 Paranoid Android
+# Copyright (C) 2023 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -66,7 +66,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 
 # ParanoidDoze
-PRODUCT_PACKAGES += \
+MITHORIUM_PRODUCT_PACKAGES += \
     ParanoidDoze
 
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
@@ -173,7 +173,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.msm8937
+    camera.$(TARGET_BOARD_PLATFORM)
 
 MITHORIUM_PRODUCT_PACKAGES += \
     libstdc++.vendor
@@ -238,7 +238,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
-PRODUCT_PACKAGES += \
+MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mi439 \
     android.hardware.biometrics.fingerprint@2.2
 
@@ -254,7 +254,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0.vendor
 endif
-PRODUCT_PACKAGES += \
+MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
 
@@ -301,7 +301,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0.vendor
 endif
-PRODUCT_PACKAGES += \
+MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
 # Lights
@@ -390,7 +390,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     init.qti.qseecomd.sh \
     init.xiaomi.device.sh
 
-PRODUCT_PACKAGES += \
+MITHORIUM_PRODUCT_PACKAGES += \
     fstab.qcom
 
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
@@ -408,11 +408,13 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 # Sensors
 MITHORIUM_PRODUCT_PACKAGES += \
-    $(LOCAL_PATH)/configs/sensors/pine___def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/pine___def_qcomdev.conf \
-    $(LOCAL_PATH)/configs/sensors/olive__def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/olive__def_qcomdev.conf \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/pine___def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/pine___def_qcomdev.conf \
+    $(LOCAL_PATH)/configs/sensors/olive__def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/olive__def_qcomdev.conf
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -462,12 +464,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
 
 # Inherit the proprietary files
+$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
 $(call inherit-product, vendor/xiaomi/mithorium-common/mithorium-common-vendor.mk)
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 $(call inherit-product, vendor/xiaomi/mithorium-common-4.19/mithorium-common-4.19-vendor.mk)
 endif
-$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
 
 # EXTRA: MiuiCamera
 ifneq ($(wildcard vendor/miuicamera/config.mk),)

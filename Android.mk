@@ -1,15 +1,13 @@
 #
-# Copyright (C) 2017-2022 The LineageOS Project
-# Copyright (C) 2022 Paranoid Android
+# Copyright (C) 2017-2023 The LineageOS Project
+# Copyright (C) 2023 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 LOCAL_PATH := $(call my-dir)
 
-# Wanna decommonize trees for better stability or performance?
-# Just moving stuff among trees won't make any difference, lol
-ifneq ($(filter MiThoriumSSI Mi8937 Mi439 Mi439_4_19 Tiare oxygen uter vince onc,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),Mi439)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
