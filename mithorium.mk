@@ -17,13 +17,6 @@ TARGET_BOARD_PLATFORM ?= msm8937
 # Aosp BT
 TARGET_USE_QTI_BT_STACK := false
 
-ifeq ($(TARGET_BOARD_PLATFORM),msm8953)
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.hardware.activity_recognition=msm8937 \
-    ro.hardware.sound_trigger=msm8937 \
-    vendor.opengles.version=196610
-endif
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-pa
@@ -278,21 +271,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.lights-service.xiaomi_mithorium
 
 # Media
-ifeq ($(TARGET_BOARD_PLATFORM),msm8953)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/media/msm8953/media_profiles_8953.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/media/msm8953/media_profiles_8953.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_8953.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_8953.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_performance_8953.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_performance_8953.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_8953.xml \
-    $(LOCAL_PATH)/media/msm8953/media_profiles_8953_v1.xml:system/etc/media_profiles_8953_v1.xml \
-    $(LOCAL_PATH)/media/msm8953/media_profiles_8953_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_8953_v1.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_8953_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_v1.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_performance_8953_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_v1.xml \
-    $(LOCAL_PATH)/media/msm8953/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
-else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/msm8937/media_profiles_8937.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/media/msm8937/media_profiles_8937.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
@@ -304,7 +282,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/msm8937/media_codecs_8956.xml::$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_8956.xml \
     $(LOCAL_PATH)/media/msm8937/media_codecs_performance_8937.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/media/msm8937/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
-endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
@@ -427,10 +404,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
     WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
-
-ifeq ($(TARGET_BOARD_PLATFORM),msm8953)
-MITHORIUM_PRODUCT_PACKAGES += WifiOverlay_5GHz
-endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
