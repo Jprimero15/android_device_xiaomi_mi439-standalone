@@ -83,7 +83,7 @@ config.svi.path=vendor/data/sviconfig.xml
 #ro.vendor.display.cabl=2
 #end,REQ-Bug399587,added svi by zhihuafang.wt,20181203
 
-# Xiaomi Mi439 - FM Radio
+# FM Radio
 hw.fm.internal_antenna=1
 
 #System property for FM transmitter

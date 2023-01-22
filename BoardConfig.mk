@@ -133,13 +133,8 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest_k$(TARGET_KERNEL_VERSION).xml
-ifneq ($(TARGET_HAS_NO_CONSUMERIR),true)
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest/consumerir.xml
-endif
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest/gatekeeper.xml
-ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest/keymaster.xml
-endif
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
@@ -259,9 +254,8 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
-include vendor/xiaomi/Mi439/BoardConfigVendor.mk
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
-include vendor/xiaomi/mithorium-common/BoardConfigVendor.mk
+include vendor/xiaomi/Mi439/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
-include vendor/xiaomi/mithorium-common-4.19/BoardConfigVendor.mk
+include vendor/xiaomi/Mi439-4.19/BoardConfigVendor.mk
 endif

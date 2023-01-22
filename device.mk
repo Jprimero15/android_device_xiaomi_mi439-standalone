@@ -20,12 +20,6 @@ TARGET_BOARD_PLATFORM := msm8937
 # Cryptfshw
 TARGET_EXCLUDE_CRYPTFSHW := true
 
-# Gatekeeper
-TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER := true
-
-# Keymaster
-TARGET_USES_DEVICE_SPECIFIC_KEYMASTER := true
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1440
 TARGET_SCREEN_WIDTH := 720
@@ -80,6 +74,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_olive/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
@@ -102,9 +98,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.print.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_olive/android.hardware.fingerprint.xml
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
 # ANT
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -185,11 +179,9 @@ MITHORIUM_PRODUCT_PACKAGES += \
 endif
 
 # Consumer IR
-ifneq ($(TARGET_HAS_NO_CONSUMERIR),true)
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
-endif
 
 # Device-specific Settings
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -248,15 +240,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
     libqcomfmjni
 
 # Gatekeeper HAL
-ifneq ($(TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER),true)
-MITHORIUM_PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0.vendor
-endif
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
-
 
 # GPS / Location
 include $(LOCAL_PATH)/gps/gps_vendor_product.mk
@@ -295,12 +280,6 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/)
 
 # Keymaster HAL
-ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
-MITHORIUM_PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service \
-    android.hardware.keymaster@3.0.vendor
-endif
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
@@ -464,11 +443,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
-$(call inherit-product, vendor/xiaomi/mithorium-common/mithorium-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
-$(call inherit-product, vendor/xiaomi/mithorium-common-4.19/mithorium-common-4.19-vendor.mk)
+$(call inherit-product, vendor/xiaomi/Mi439-4.19/Mi439-vendor.mk)
 endif
 
 # EXTRA: MiuiCamera
