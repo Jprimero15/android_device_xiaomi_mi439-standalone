@@ -143,8 +143,8 @@ endif
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB ?= //$(DEVICE_PATH):init_xiaomi_mithorium
-TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_mithorium
+TARGET_INIT_VENDOR_LIB ?= //$(DEVICE_PATH):init_xiaomi_mi439
+TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_mi439
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
