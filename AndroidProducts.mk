@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aospa_Mi439.mk
+    $(LOCAL_DIR)/aospa_mi439.mk
 
 COMMON_LUNCH_CHOICES := \
-    aospa_Mi439-user \
-    aospa_Mi439-userdebug \
-    aospa_Mi439-eng
+    aospa_mi439-user \
+    aospa_mi439-userdebug \
+    aospa_mi439-eng

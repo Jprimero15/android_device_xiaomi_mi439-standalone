@@ -8,7 +8,7 @@
 
 set -e
 
-export DEVICE=Mi439
+export DEVICE=mi439
 export VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks

@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/Mi439
+DEVICE_PATH := device/xiaomi/mi439
 
 # Architecture
 TARGET_ARCH := arm64
@@ -255,7 +255,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
-include vendor/xiaomi/Mi439/BoardConfigVendor.mk
+include vendor/xiaomi/mi439/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
-include vendor/xiaomi/Mi439-4.19/BoardConfigVendor.mk
+include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
 endif

@@ -444,9 +444,9 @@ PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
 
 # Inherit the proprietary files
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
-$(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
+$(call inherit-product, vendor/xiaomi/mi439/mi439-vendor.mk)
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
-$(call inherit-product, vendor/xiaomi/Mi439-4.19/Mi439-vendor.mk)
+$(call inherit-product, vendor/xiaomi/mi439-4.19/mi439-vendor.mk)
 endif
 
 # EXTRA: MiuiCamera

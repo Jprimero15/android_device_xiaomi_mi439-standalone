@@ -8,7 +8,7 @@
 
 set -e
 
-export DEVICE=Mi439
+export DEVICE=mi439
 export VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
@@ -38,7 +38,7 @@ done
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "Mi439"
+write_headers "mi439"
 
 # The standard device blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

@@ -12,20 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq (aospa_Mi439, $(TARGET_PRODUCT))
+ifeq (aospa_mi439, $(TARGET_PRODUCT))
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit from Mi439 device configuration.
-$(call inherit-product, device/xiaomi/Mi439/device.mk)
+# Inherit from mi439 device configuration.
+$(call inherit-product, device/xiaomi/mi439/device.mk)
 
 # Inherit from common AOSPA configuration
 $(call inherit-product, vendor/aospa/target/product/aospa-target.mk)
 
-PRODUCT_NAME := aospa_Mi439
-PRODUCT_DEVICE := Mi439
+PRODUCT_NAME := aospa_mi439
+PRODUCT_DEVICE := mi439
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI SDM439
 PRODUCT_MANUFACTURER := Xiaomi

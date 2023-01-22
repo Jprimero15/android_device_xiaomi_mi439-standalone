@@ -7,7 +7,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),Mi439)
+ifeq ($(TARGET_DEVICE),mi439)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -138,7 +138,7 @@ $(WCNSS_DAT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_BIN_SYMLINK) $(WCNSS_DAT_SYMLINK)
 endif
 
-ifeq ($(filter Mi439 Mi439_4_19,$(TARGET_DEVICE)),)
+ifeq ($(filter mi439 mi439_4_19,$(TARGET_DEVICE)),)
 WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/wlan_mac.bin
 $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS MAC bin link: $@"
