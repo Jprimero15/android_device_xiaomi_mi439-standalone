@@ -45,9 +45,7 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/Car
 MITHORIUM_PRODUCT_PACKAGES += \
     AOSPAOliveFrameworks \
     xiaomi_pine_overlay \
-    xiaomi_pine_overlay_lineage \
     xiaomi_olive_overlay \
-    xiaomi_olive_overlay_lineage \
     xiaomi_olive_overlay_Snap \
     xiaomi_olive_overlay_SystemUI
 
