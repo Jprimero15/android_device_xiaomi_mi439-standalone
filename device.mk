@@ -110,7 +110,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 MITHORIUM_PRODUCT_PACKAGES += \
     audio.bluetooth.default \
-    audio.primary.$(TARGET_BOARD_PLATFORM) \
+    audio.primary.msm8937 \
     audio.r_submix.default \
     audio.usb.default
 
@@ -160,7 +160,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.$(TARGET_BOARD_PLATFORM)
+    camera.msm8937
 
 MITHORIUM_PRODUCT_PACKAGES += \
     libstdc++.vendor
@@ -191,19 +191,19 @@ MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display
 
 MITHORIUM_PRODUCT_PACKAGES += \
-    gralloc.$(TARGET_BOARD_PLATFORM)
+    gralloc.msm8937
 
 MITHORIUM_PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor
 
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
-    hwcomposer.$(TARGET_BOARD_PLATFORM)
+    hwcomposer.msm8937
 
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    memtrack.$(TARGET_BOARD_PLATFORM)
+    memtrack.msm8937
 
 MITHORIUM_PRODUCT_PACKAGES += \
     libdisplayconfig \
@@ -430,7 +430,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg_$(TARGET_BOARD_PLATFORM).ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg_msm8937.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Build MITHORIUM_PRODUCT_PACKAGES
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
