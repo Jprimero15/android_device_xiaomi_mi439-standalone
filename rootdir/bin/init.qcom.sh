@@ -425,6 +425,3 @@ case "$buildvariant" in
         echo "4 4 1 4" > /proc/sys/kernel/printk
         ;;
 esac
-
-# Remove settings cache, avoids derps after dirty flash
-rm -rf /data/system/package_cache
