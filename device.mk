@@ -247,16 +247,21 @@ MITHORIUM_PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# Overlays
+# Overlays RRO
 MITHORIUM_PRODUCT_PACKAGES += \
-    AOSPAOliveFrameworks \
-    xiaomi_pine_overlay \
-    xiaomi_olive_overlay \
-    xiaomi_olive_overlay_SystemUI
-
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
+    Mi439FrameworksAOSPA \
+    Mi439SystemUIAOSPA \
+    Mi439Frameworks \
+    Mi439SystemUI \
+    Mi439Settings \
+    Mi439CarrierConfig \
+    Mi439STelephony \
+    Mi439TetheringConfig \
+    Mi439Wifi \
+    Mi439Haptic \
+    XiaomiOlive \
+    XiaomiOliveSystemUI \
+    XiaomiPine
 
 # ParanoidDoze
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -380,10 +385,6 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Tethering
-MITHORIUM_PRODUCT_PACKAGES += \
-    TetheringConfigOverlay
-
 # Thermal
 ifneq ($(TARGET_KERNEL_VERSION),4.19)
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -406,7 +407,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     wificond \
-    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 
