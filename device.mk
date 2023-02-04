@@ -391,6 +391,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Build Apps
+MITHORIUM_PRODUCT_PACKAGES += \
+    Aperture \
+    Contacts \
+    DeskClock \
+    Dialer \
+    Etar \
+    ExactCalculator \
+    Gallery2 \
+    LatinIME \
+    MatLog \
+    messaging
+
 # Build MITHORIUM_PRODUCT_PACKAGES
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
 
