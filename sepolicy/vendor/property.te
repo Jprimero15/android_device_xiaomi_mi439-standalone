@@ -4,8 +4,5 @@ vendor_public_prop(baseband_prop);
 # Dirac
 vendor_public_prop(dirac_prop);
 
-# Pasrmanager
-vendor_public_prop(vendor_pasr_prop);
-
 # Xiaomi
 vendor_public_prop(vendor_xiaomi_prop);
