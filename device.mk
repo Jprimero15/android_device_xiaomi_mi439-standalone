@@ -263,14 +263,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
     XiaomiOliveSystemUI \
     XiaomiPine
 
-# ParanoidDoze
-MITHORIUM_PRODUCT_PACKAGES += \
-    ParanoidDoze
-
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    ro.sensor.pickup=xiaomi.sensor.pickup \
-    ro.sensor.proximity=true
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
