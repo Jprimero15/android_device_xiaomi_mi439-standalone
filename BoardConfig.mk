@@ -101,7 +101,7 @@ BOARD_SHIPPING_API_LEVEL := 30
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml \
-    vendor/aospa/target/config/aospa_vendor_framework_compatibility_matrix.xml
+    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest_k$(TARGET_KERNEL_VERSION).xml
@@ -132,6 +132,7 @@ KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
 TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
@@ -189,6 +190,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
@@ -240,3 +242,6 @@ include vendor/xiaomi/mi439/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
 endif
+
+# Inherit from ReloadedOS configuration
+include vendor/reloaded/config/BoardConfigReloaded.mk
