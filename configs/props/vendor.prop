@@ -14,6 +14,7 @@ debug.egl.hw=0
 debug.mdpcomp.logs=0
 dev.pm.dyn_samplingrate=1
 debug.enable.sglscale=1
+debug.sf.enable_transaction_tracing=false
 debug.sf.recomputecrop=0
 
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
