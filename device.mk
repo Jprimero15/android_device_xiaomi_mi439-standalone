@@ -368,7 +368,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 # Vibrator
 MITHORIUM_PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    android.hardware.vibrator@1.3-service.xiaomi_mi439
 
 # Wifi
 MITHORIUM_PRODUCT_PACKAGES += \
