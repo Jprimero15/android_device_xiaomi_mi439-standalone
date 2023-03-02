@@ -18,3 +18,7 @@ allow init sysfs_battery_supply:file r_file_perms;
 allow init sysfs_devices_system_cpu:file rw_file_perms;
 allow init sysfs_kgsl:file rw_file_perms;
 allow init sysfs_msm_perf:file rw_file_perms;
+
+# Prop
+get_prop(init, vendor_subsys_state_notifier_prop)
+get_prop(init, vendor_xiaomi_prop)
