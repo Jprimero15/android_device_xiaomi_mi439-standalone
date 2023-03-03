@@ -185,7 +185,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist
 
 # Platform
-BOARD_USES_QCOM_HARDWARE := true
 TARGET_ENFORCES_QSSI := true
 
 # Power
