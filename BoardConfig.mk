@@ -184,9 +184,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware_mnt:/firmware \
     /mnt/vendor/persist:/persist
 
-# Platform
-TARGET_ENFORCES_QSSI := true
-
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
 
