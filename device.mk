@@ -164,9 +164,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
-# GPS / Location
-include $(LOCAL_PATH)/gps/gps_vendor_product.mk
-
 # Health
 MITHORIUM_PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-qti \
