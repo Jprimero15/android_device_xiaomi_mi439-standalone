@@ -201,7 +201,6 @@ persist.vendor.camera.hal1.enable=1
 persist.vendor.camera.expose.logicId3=1
 
 # SoC info
-ro.soc.manufacturer=Qualcomm
 ro.soc.model=SDM439
 
 ### END Unlabeled vendor props
