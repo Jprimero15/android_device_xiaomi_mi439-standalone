@@ -356,10 +356,6 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Subsystem state notifier
-MITHORIUM_PRODUCT_PACKAGES += \
-    subsystem_state_notifier
-
 # Thermal
 ifneq ($(TARGET_KERNEL_VERSION),4.19)
 MITHORIUM_PRODUCT_PACKAGES += \
