@@ -20,9 +20,19 @@
         <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::IComposer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.ir</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IConsumerIr/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.keymaster</name>

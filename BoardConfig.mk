@@ -99,15 +99,9 @@ LOC_HIDL_VERSION := 4.1
 BOARD_SHIPPING_API_LEVEL := 30
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/framework_compatibility_matrix.xml \
-    vendor/aospa/target/config/aospa_vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest_k$(TARGET_KERNEL_VERSION).xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest/consumerir.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest/gatekeeper.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_mi439
