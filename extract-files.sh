@@ -2,14 +2,15 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017-2022 The LineageOS Project
+# Copyright (C) 2023 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
 
-export DEVICE=mi439
-export VENDOR=xiaomi
+DEVICE=mi439
+VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -31,13 +32,10 @@ KERNEL_4_19=
 KANG=
 SECTION=
 
-SETUP_MAKEFILES_ARGS=
-
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
         --kernel-4.19 )
                 KERNEL_4_19=true
-                SETUP_MAKEFILES_ARGS+=" ${1}"
                 ;;
         -n | --no-cleanup )
                 CLEAN_VENDOR=false
@@ -77,11 +75,6 @@ function blob_fixup() {
                 exit;
             fi
             ;;
-    esac
-}
-
-function blob_fixup() {
-    case "${1}" in
         product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml \
         | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
             sed -i 's|version="2.0"|version="1.0"|g' "${2}"
@@ -95,7 +88,7 @@ function blob_fixup() {
 }
 
 # Initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 if [ "${KERNEL_4_19}" != "true" ]; then
@@ -110,4 +103,4 @@ else
     extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 
-"${MY_DIR}/setup-makefiles.sh" ${SETUP_MAKEFILES_ARGS}
+"${MY_DIR}/setup-makefiles.sh"
