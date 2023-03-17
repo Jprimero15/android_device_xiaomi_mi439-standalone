@@ -2,14 +2,15 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017-2022 The LineageOS Project
+# Copyright (C) 2023 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
 
-export DEVICE=mi439
-export VENDOR=xiaomi
+DEVICE=mi439
+VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -28,17 +29,16 @@ while [ "${#}" -gt 0 ]; do
     case "${1}" in
         --kernel-4.19 )
                 KERNEL_4_19=true
-                SETUP_MAKEFILES_ARGS+=" ${1}"
                 ;;
     esac
     shift
 done
 
 # Initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
 # Warning headers and guards
-write_headers "mi439"
+write_headers
 
 # The standard device blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
