@@ -69,8 +69,8 @@ Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
         return Status::UNKNOWN_ERROR;
     }
 
-    ALOGI("Amplitude: %u -> %u, mv = %u, mv_addition = %u\n",
-            mAmplitude, amplitude, mv, mv_addition);
+    //ALOGI("Amplitude: %u -> %u, mv = %u, mv_addition = %u\n",
+    //        mAmplitude, amplitude, mv, mv_addition);
     mAmplitude = amplitude;
     return Status::OK;
 }
@@ -117,7 +117,7 @@ Return<void> Vibrator::perform(Effect effect, EffectStrength strength, perform_c
     uint32_t ms;
     Status status = Status::OK;
 
-    ALOGI("Perform: Effect %s\n", effectToName(effect).c_str());
+    //ALOGI("Perform: Effect %s\n", effectToName(effect).c_str());
     mHasEffect = true;
 
     amplitude = strengthToAmplitude(strength, &status);
@@ -128,7 +128,7 @@ Return<void> Vibrator::perform(Effect effect, EffectStrength strength, perform_c
     setAmplitude(amplitude);
 
     ms = effectToMs(effect, &status);
-    ALOGI("ms = %u", ms);
+    //ALOGI("ms = %u", ms);
     if (status != Status::OK) {
         _hidl_cb(status, 0);
         return Void();
