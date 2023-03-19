@@ -11,9 +11,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# AOSP audio
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+
 # 8937/sdm439 Platform
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.9
+
+# Vanilla
+TARGET_DISABLES_GMS := true
 
 # ANT
 MITHORIUM_PRODUCT_PACKAGES += \
@@ -386,6 +392,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+# Build Apps
+MITHORIUM_PRODUCT_PACKAGES += \
+    charger_res_images \
+    Contacts \
+    DeskClock \
+    Dialer \
+    Etar \
+    ExactCalculator \
+    GrapheneOSCamera \
+    Jelly \
+    LatinIME \
+    messaging
 
 # Build MITHORIUM_PRODUCT_PACKAGES
 PRODUCT_PACKAGES += $(MITHORIUM_PRODUCT_PACKAGES)
