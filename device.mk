@@ -238,8 +238,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
 
 # Overlays RRO
 MITHORIUM_PRODUCT_PACKAGES += \
-    Mi439FrameworksAOSPA \
-    Mi439SystemUIAOSPA \
+    Mi439FrameworksAOSP \
+    Mi439SystemUIAOSP \
     Mi439Frameworks \
     Mi439SystemUI \
     Mi439Settings \
@@ -409,3 +409,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivelite.xml \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivewood.xml
 endif
+
+# QC common
+$(call inherit-product, device/qcom/common/common.mk)

@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "Mi439SystemUIAOSPA",
+    name: "Mi439FrameworksAOSP",
     vendor: true,
 }

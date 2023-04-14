@@ -15,7 +15,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.aospa.mi439">
+    package="co.aosp.mi439">
 
     <overlay
         android:isStatic="true"
