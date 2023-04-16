@@ -386,5 +386,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivewood.xml
 endif
 
+# MIthorium HALs
+$(call inherit-product, hardware/mithorium/mithorium_qcom_hals.mk)
+
 # QC common
 $(call inherit-product, device/qcom/common/common.mk)
