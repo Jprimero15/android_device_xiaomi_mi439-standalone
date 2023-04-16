@@ -225,6 +225,9 @@ WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
+# MIthorium HALs
+QCOM_SOONG_NAMESPACE := hardware/mithorium-4.19
+
 # Inherit from the proprietary version
 include vendor/xiaomi/mi439/BoardConfigVendor.mk
 

@@ -360,6 +360,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# MIthorium HALs
+$(call inherit-product, hardware/mithorium-4.19/mithorium_qcom_hals.mk)
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mi439/mi439-vendor.mk)
 
