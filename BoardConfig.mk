@@ -242,5 +242,8 @@ else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
 endif
 
+# MIthorium HALs
+QCOM_SOONG_NAMESPACE := hardware/mithorium
+
 # QC common
 include device/qcom/common/BoardConfigQcom.mk
