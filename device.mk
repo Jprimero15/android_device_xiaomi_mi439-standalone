@@ -83,6 +83,11 @@ PRODUCT_PACKAGES += \
     libstdc++_vendor \
     camera.msm8937
 
+ifeq ($(USE_GRAPHENEOS_CAM), true)
+PRODUCT_PACKAGES += \
+    GrapheneOSCamera
+endif
+
 # Cgroups and task profiles
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
@@ -281,6 +286,11 @@ PRODUCT_PACKAGES += \
     XiaomiOliveAperture \
     XiaomiOliveSystemUI \
     XiaomiPine
+
+ifeq ($(USE_GRAPHENEOS_CAM), true)
+PRODUCT_PACKAGES += \
+    GrapheneFrameworks
+endif
 
 # Perf
 PRODUCT_COPY_FILES += \
