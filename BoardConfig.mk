@@ -187,6 +187,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
+TARGET_USES_INTERACTION_BOOST := true
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
