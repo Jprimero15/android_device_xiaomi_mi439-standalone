@@ -174,7 +174,7 @@ include $(LOCAL_PATH)/gps/gps_vendor_product.mk
 
 # Health
 MITHORIUM_PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-qti \
+    android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
 # IMS
