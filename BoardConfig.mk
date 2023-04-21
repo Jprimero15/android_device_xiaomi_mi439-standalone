@@ -96,6 +96,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_SHIPPING_API_LEVEL := 30
 
 # HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest_k$(TARGET_KERNEL_VERSION).xml
 
