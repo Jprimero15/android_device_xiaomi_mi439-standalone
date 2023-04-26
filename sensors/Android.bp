@@ -4,7 +4,7 @@ package {
 }
 
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl-xiaomi",
+    name: "android.hardware.sensors@1.0-impl-xiaomi_mi439",
     defaults: ["hidl_defaults"],
     proprietary: true,
     relative_install_path: "hw",
