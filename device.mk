@@ -305,6 +305,7 @@ MITHORIUM_PRODUCT_PACKAGES += \
     fstab.qcom_ramdisk \
     init.xiaomi.device.rc \
     init.qcom.rc \
+    init.qcom.power.rc \
     init.olive.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
@@ -314,7 +315,6 @@ MITHORIUM_PRODUCT_PACKAGES += \
 MITHORIUM_PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qti.qseecomd.sh \

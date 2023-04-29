@@ -1,0 +1,166 @@
+# Copyright (c) 2012-2013, 2016-2020, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of The Linux Foundation nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+on early-init
+    # enable sched boost in order to schedule tasks on perf cluster
+    write /proc/sys/kernel/sched_boost 1
+    
+on init
+    # Boot time FS tune
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/mmcblk0rpmb/queue/iostats 0
+    write /sys/block/mmcblk0rpmb/queue/scheduler cfq
+    write /sys/block/mmcblk0rpmb/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0rpmb/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+    
+   write /dev/stune/top-app/schedtune.colocate 1
+    
+on boot
+   # Add a cpuset for the camera daemon
+   # We want all cores for camera
+   mkdir /dev/cpuset/camera-daemon
+   write /dev/cpuset/camera-daemon/cpus 0-7
+   write /dev/cpuset/camera-daemon/mems 0
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+   chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+on enable-low-power
+    # readahead 
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 128
+    write /sys/block/mmcblk0rpmb/bdi/read_ahead_kb 128
+    
+    # Apply settings for sdm439/sda439
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+                     
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1497600
+    write  /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 960000
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 998400
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load 85
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 768000
+    
+    # sched_load_boost as -6 is equivalent to target load as 85.
+    write /sys/devices/system/cpu/cpu0/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu1/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu2/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu3/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu4/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu5/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu6/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu7/sched_load_boost "-6" 
+ 
+    # EAS scheduler (big.Little cluster related) settings
+    write /proc/sys/kernel/sched_upmigrate 93
+    write /proc/sys/kernel/sched_downmigrate 83
+    write /proc/sys/kernel/sched_group_upmigrate 140
+    write /proc/sys/kernel/sched_group_downmigrate 120 
+  
+    # Bring up all cores online
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+   
+    # Core control parameters
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 68
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 40
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+       
+    # Enable bus-dcvs
+    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
+    write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 20
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 30
+
+    # Turn off scheduler boost at the end
+    write /proc/sys/kernel/sched_boost 0
+    
+    # sched_load_boost as -6 is equivalent to target load as 85.
+    write /sys/devices/system/cpu/cpu0/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu1/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu2/sched_load_boost "-6" 
+    write /sys/devices/system/cpu/cpu3/sched_load_boost "-6" 
+
+    # Bring up all cores online
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    
+    # Disable L2-GDHS low power modes
+    write /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled "N"
+    write /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled "N"
+    write /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled "N"
+    write /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled "N"
+                
+    # Enable low power modes
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    
+    # LMK light profile
+    write /sys/module/lowmemorykiller/parameters/minfree "18360,27540,36720,45900,55080,64260" 
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+        
+    # Set allocstall_threshold to 0 for all targets.
+    write /sys/module/vmpressure/parameters/allocstall_threshold 0
+    # Set swappiness to 100 for all targets
+    write /proc/sys/vm/swappiness 100
+
+    # Disable wsf for all targets beacause we are using efk.
+    # wsf Range : 1..1000 So set to bare minimum value 1.
+    write /proc/sys/vm/watermark_scale_factor 1   
+    
+on property:sys.boot_completed=1
+    trigger enable-low-power
+
+    setprop vendor.post_boot.parsed 1
+
+on property:init.svc.recovery=running
+    trigger enable-low-power
