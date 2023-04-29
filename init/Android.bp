@@ -1,14 +1,37 @@
 //
 // Copyright (C) 2021-2022 The LineageOS Project
+// Copyright (C) 2023 Paranoid Android
 //
 // SPDX-License-Identifier: Apache-2.0
 //
+
+// libinit
+
+cc_library_static {
+    name: "libinit_xiaomi_mi439",
+    srcs: [
+        "libinit_dalvik_heap.cpp",
+        "libinit_utils.cpp",
+        "libinit_variant.cpp",
+    ],
+    whole_static_libs: ["libbase"],
+    export_include_dirs: ["include"],
+    recovery_available: true,
+}
+
+cc_library_static {
+    name: "init_xiaomi_mi439",
+    srcs: ["init_xiaomi_mi439.cpp"],
+    whole_static_libs: ["libinit_xiaomi_mi439"],
+    include_dirs: ["system/core/init"],
+    recovery_available: true,
+}
 
 // fstab
 
 prebuilt_etc {
     name: "fstab.qcom",
-    src: "etc/fstab.qcom",
+    src: "fstab.qcom",
     vendor: true,
 }
 
@@ -16,42 +39,42 @@ prebuilt_etc {
 
 prebuilt_etc {
     name: "init.baseband.proxy.rc",
-    src: "etc/init.baseband.proxy.rc",
+    src: "init.baseband.proxy.rc",
     sub_dir: "init",
     system_ext_specific: true,
 }
 
 prebuilt_etc {
     name: "init.qcom.rc",
-    src: "etc/init.qcom.rc",
+    src: "init.qcom.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.olive.usb.rc",
-    src: "etc/init.olive.usb.rc",
+    src: "init.olive.usb.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.target.rc",
-    src: "etc/init.target.rc",
+    src: "init.target.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.xiaomi.rc",
-    src: "etc/init.xiaomi.rc",
+    src: "init.xiaomi.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.xiaomi.device.rc",
-    src: "etc/init.xiaomi.device.rc",
+    src: "init.xiaomi.device.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -59,7 +82,7 @@ prebuilt_etc {
 prebuilt_etc {
     name: "ueventd.qcom.rc",
     filename: "ueventd.rc",
-    src: "etc/ueventd.qcom.rc",
+    src: "ueventd.qcom.rc",
     vendor: true,
 }
 
@@ -67,61 +90,61 @@ prebuilt_etc {
 
 sh_binary {
     name: "init.acdbdata.sh",
-    src: "bin/init.acdbdata.sh",
+    src: "init.acdbdata.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.baseband.sh",
     required: ["init.baseband.proxy.rc"],
-    src: "bin/init.baseband.sh",
+    src: "init.baseband.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.class_main.sh",
-    src: "bin/init.class_main.sh",
+    src: "init.class_main.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qcom.early_boot.sh",
-    src: "bin/init.qcom.early_boot.sh",
+    src: "init.qcom.early_boot.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qcom.post_boot.sh",
-    src: "bin/init.qcom.post_boot.sh",
+    src: "init.qcom.post_boot.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qcom.sensors.sh",
-    src: "bin/init.qcom.sensors.sh",
+    src: "init.qcom.sensors.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qcom.sh",
-    src: "bin/init.qcom.sh",
+    src: "init.qcom.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qti.dcvs.sh",
-    src: "bin/init.qti.dcvs.sh",
+    src: "init.qti.dcvs.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.qti.qseecomd.sh",
-    src: "bin/init.qti.qseecomd.sh",
+    src: "init.qti.qseecomd.sh",
     vendor: true,
 }
 
 sh_binary {
     name: "init.xiaomi.device.sh",
-    src: "bin/init.xiaomi.device.sh",
+    src: "init.xiaomi.device.sh",
     vendor: true,
 }
