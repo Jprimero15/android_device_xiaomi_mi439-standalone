@@ -291,7 +291,6 @@ PRODUCT_COPY_FILES += \
 
 # Powerhint
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint/system/powerhint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/powerhint.xml \
     $(LOCAL_PATH)/configs/powerhint/vendor/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 PRODUCT_COPY_FILES += \
