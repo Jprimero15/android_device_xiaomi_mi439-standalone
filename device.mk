@@ -295,6 +295,7 @@ TARGET_COMMON_QTI_COMPONENTS += \
     av \
     bt \
     gps \
+    overlay \
     perf \
     telephony \
     usb
