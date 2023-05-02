@@ -5,7 +5,9 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.aosp.systemui.mi439">
+    package="co.aosp.systemui.overlay.mi439">
+
+    <application android:hasCode="false" />
 
     <overlay
         android:isStatic="true"

@@ -5,13 +5,14 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="android.xiaomi.olive"
-        android:versionCode="1"
-        android:versionName="1.0">
+    package="android.overlay.olive">
 
-        <overlay android:targetPackage="android"
-                android:requiredSystemPropertyName="ro.vendor.xiaomi.device"
-		android:requiredSystemPropertyValue="olive"
-		android:priority="800"
-		android:isStatic="true" />
+    <application android:hasCode="false" />
+
+    <overlay
+        android:isStatic="true"
+        android:priority="800"
+        android:requiredSystemPropertyName="ro.vendor.xiaomi.device"
+        android:requiredSystemPropertyValue="olive"
+        android:targetPackage="android" />
 </manifest>
