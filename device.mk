@@ -255,7 +255,8 @@ MITHORIUM_PRODUCT_PACKAGES += \
     Mi439Haptic \
     XiaomiOlive \
     XiaomiOliveSystemUI \
-    XiaomiPine
+    XiaomiPine \
+    CombinedQSOverlay
 
 ifeq ($(USE_GRAPHENEOS_CAM), true)
 MITHORIUM_PRODUCT_PACKAGES += \

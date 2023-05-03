@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Disable Combined QS Headers -->
+    <bool name="flag_combined_qs_headers">false</bool>
+
+</resources>
