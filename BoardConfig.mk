@@ -92,6 +92,11 @@ TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/config.fs
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
+# gBn/sConstructorMap
+SOONG_CONFIG_NAMESPACES += legacyGbnConstVars
+SOONG_CONFIG_legacyGbnConstVars += use_legacy_gbnconstructormap
+SOONG_CONFIG_legacyGbnConstVars_use_legacy_gbnconstructormap := true
+
 # GPS
 LOC_HIDL_VERSION := 4.1
 
