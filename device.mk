@@ -163,6 +163,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom
 
 PRODUCT_PACKAGES += \
+    init.mi439.perf.rc \
     init.xiaomi.device.rc \
     init.qcom.rc \
     init.olive.usb.rc \

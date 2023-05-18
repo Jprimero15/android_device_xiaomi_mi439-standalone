@@ -1,0 +1,16 @@
+on property:vendor.post_boot.parsed=1
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1497600
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 960000
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 998400
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load 85
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 768000
