@@ -15,10 +15,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.9
 
-# ANT
-PRODUCT_PACKAGES += \
-    com.dsi.ant@1.0.vendor
-
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
 OVERRIDE_PRODUCT_COMPRESSED_APEX := false
@@ -30,7 +26,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.1-impl \
-    audio.bluetooth.default \
     audio.primary.msm8937 \
     audio.r_submix.default \
     audio.usb.default \
@@ -65,11 +60,9 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 TARGET_USE_QTI_BT_STACK := false
+
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@2.0.vendor \
-    vendor.qti.hardware.bluetooth_audio@2.1.vendor
+    android.hardware.bluetooth@1.0.vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1440
@@ -280,8 +273,6 @@ PRODUCT_PACKAGES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
