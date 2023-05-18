@@ -190,7 +190,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.xiaomi_mithorium
+    android.hardware.lights-service.xiaomi_sdm439
 
 # Media
 PRODUCT_COPY_FILES += \

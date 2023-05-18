@@ -16,7 +16,7 @@
 
 #pragma once
 
-#define LOG_TAG "lights-xiaomi_mithorium"
+#define LOG_TAG "lights-xiaomi_sdm439"
 
 #include <aidl/android/hardware/light/BnLights.h>
 

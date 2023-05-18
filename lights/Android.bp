@@ -1,8 +1,8 @@
 cc_binary {
-    name: "android.hardware.lights-service.xiaomi_mithorium",
+    name: "android.hardware.lights-service.xiaomi_sdm439",
     relative_install_path: "hw",
-    init_rc: ["lights-xiaomi_mithorium.rc"],
-    vintf_fragments: ["lights-xiaomi_mithorium.xml"],
+    init_rc: ["lights-xiaomi_sdm439.rc"],
+    vintf_fragments: ["lights-xiaomi_sdm439.xml"],
     vendor: true,
     shared_libs: [
         "libbase",
