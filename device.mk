@@ -98,36 +98,26 @@ TARGET_EXCLUDE_CRYPTFSHW := true
 
 # Display
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display
-
-PRODUCT_PACKAGES += \
-    gralloc.msm8937
-
-PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0.vendor
-
-PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.composer@2.1-service \
-    hwcomposer.msm8937
-
-PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    memtrack.msm8937
-
-PRODUCT_PACKAGES += \
+    gralloc.msm8937 \
+    hwcomposer.msm8937 \
     libdisplayconfig \
     libgralloc.qti \
     libqdMetaData \
     libtinyxml \
+    memtrack.msm8937 \
     vendor.display.config@1.11.vendor \
-    vendor.display.config@2.0.vendor
+    vendor.display.config@2.0.vendor \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.1.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
