@@ -152,7 +152,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mi439 \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm439 \
     android.hardware.biometrics.fingerprint@2.2
 
 # FM
