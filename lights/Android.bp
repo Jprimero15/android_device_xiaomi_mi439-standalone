@@ -3,6 +3,7 @@ cc_binary {
     relative_install_path: "hw",
     init_rc: ["lights-xiaomi_sdm439.rc"],
     vintf_fragments: ["lights-xiaomi_sdm439.xml"],
+    overrides: ["android.hardware.lights-service.qti"],
     vendor: true,
     shared_libs: [
         "libbase",
