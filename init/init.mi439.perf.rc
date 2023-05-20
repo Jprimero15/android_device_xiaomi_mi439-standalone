@@ -14,3 +14,9 @@ on property:vendor.post_boot.parsed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 998400
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load 85
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 768000
+
+    # Configure CPU Boost
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1305600 1:1305600 2:1305600 3:1305600 4:1305600 5:1305600 6:1305600 7:1305600"
+    write /sys/module/cpu_boost/parameters/input_boost_ms "120"
+    write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:0 1:0 2:0 3:0 4:1305600 5:0 6:0 7:0"
+    write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms "400"
