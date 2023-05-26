@@ -141,11 +141,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-qti \
-    android.hardware.health@2.1-service
-
 # IMS
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.3 \
@@ -302,6 +297,7 @@ PRODUCT_COPY_FILES += \
 TARGET_COMMON_QTI_COMPONENTS += \
     av \
     bt \
+    charging \
     display \
     gps \
     overlay \
