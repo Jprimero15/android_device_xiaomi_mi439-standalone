@@ -177,7 +177,6 @@ on charger
     setprop sys.usb.configfs 1
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage
-    start vendor.hvdcp_opti
 
 service vendor.per_mgr /system/vendor/bin/pm-service
     class core
@@ -195,11 +194,6 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
-
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
