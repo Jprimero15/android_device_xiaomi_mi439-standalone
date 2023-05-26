@@ -51,6 +51,7 @@
 
 # Shell Script
 /(vendor|system/vendor)/bin/init\.xiaomi\..*\.sh			u:object_r:init_xiaomi_exec:s0
+/(vendor|system/vendor)/bin/init\.qti\.chg_policy\.sh			u:object_r:qti_init_shell_exec:s0
 
 # Sensors
 /persist/sensors(/.*)?                          u:object_r:sensors_persist_file:s0
