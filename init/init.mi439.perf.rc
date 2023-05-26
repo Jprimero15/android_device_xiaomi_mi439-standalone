@@ -20,3 +20,7 @@ on property:vendor.post_boot.parsed=1
     write /sys/module/cpu_boost/parameters/input_boost_ms "120"
     write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:0 1:0 2:0 3:0 4:1305600 5:0 6:0 7:0"
     write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms "400"
+
+    # LMK (light profile)
+    write /sys/module/lowmemorykiller/parameters/minfree "18360,27540,36720,45900,55080,64260"
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min "73440"
