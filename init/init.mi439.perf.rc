@@ -31,3 +31,10 @@ on property:vendor.post_boot.parsed=1
     write /dev/blkio/background/blkio.weight 200
     write /dev/blkio/blkio.group_idle 2000
     write /dev/blkio/background/blkio.group_idle 0
+
+    # Cpusets parameters
+    write /dev/cpuset/audio-app/cpus "6-7"
+    write /dev/cpuset/background/cpus "4-5"
+    write /dev/cpuset/camera-daemon/cpus "0-7"
+    write /dev/cpuset/restricted/cpus "4-7"
+    write /dev/cpuset/system-background/cpus "4-7"
