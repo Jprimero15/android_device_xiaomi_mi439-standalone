@@ -24,3 +24,10 @@ on property:vendor.post_boot.parsed=1
     # LMK (light profile)
     write /sys/module/lowmemorykiller/parameters/minfree "18360,27540,36720,45900,55080,64260"
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min "73440"
+
+    # Setup final blkio
+    # value for group_idle is us
+    write /dev/blkio/blkio.weight 1000
+    write /dev/blkio/background/blkio.weight 200
+    write /dev/blkio/blkio.group_idle 2000
+    write /dev/blkio/background/blkio.group_idle 0
