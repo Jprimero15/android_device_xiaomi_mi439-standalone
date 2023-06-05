@@ -33,6 +33,7 @@
 /(vendor|system/vendor)/usr/keylayout(/.*)?                   u:object_r:vendor_keylayout_file:s0
 
 # Ir
+/dev/ir_spi	u:object_r:ir_device:s0
 /dev/lirc0	u:object_r:ir_device:s0
 
 # OverlayFS
