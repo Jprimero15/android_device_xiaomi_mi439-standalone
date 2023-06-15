@@ -295,6 +295,7 @@ PRODUCT_COPY_FILES += \
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS += \
+    alarm \
     av \
     bt \
     charging \
