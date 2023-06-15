@@ -372,3 +372,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivelite.xml \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivewood.xml
 endif
+
+# QC common
+$(call inherit-product, device/qcom/common/common.mk)

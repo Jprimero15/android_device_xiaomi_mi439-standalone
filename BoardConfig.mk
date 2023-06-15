@@ -115,11 +115,14 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
-KERNEL_DEFCONFIG := vendor/msm8937-perf_defconfig
-KERNEL_FRAGMENT_CONFIG := vendor/xiaomi-sdm439.config
+TARGET_KERNEL_CONFIG := \
+    vendor/msm8937-perf_defconfig \
+    vendor/xiaomi-sdm439.config
 KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
+TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
@@ -160,6 +163,12 @@ $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600)) # 100 MB
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+
+ifeq ($(TARGET_DISABLES_GMS), true)
+# Partitions - reserved without gapps
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 838860800 # 800 MB
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 314572800 # 300 MB
+endif
 
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -218,3 +227,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 include vendor/xiaomi/mi439/BoardConfigVendor.mk
+
+# QC common
+include device/qcom/common/BoardConfigQcom.mk
