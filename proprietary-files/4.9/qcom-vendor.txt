@@ -130,46 +130,6 @@ vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 
-# GNSS
-vendor/bin/loc_launcher
-vendor/bin/mlid
-vendor/lib64/liblowi_client.so
-vendor/lib64/libminksocket.so
-
-# GNSS (configs)
-vendor/etc/apdr.conf
-vendor/etc/izat.conf
-vendor/etc/lowi.conf
-vendor/etc/sap.conf
-vendor/etc/xtwifi.conf
-
-# GNSS (HIDL)
--vendor/etc/vintf/manifest/vendor.qti.gnss@4.1-service.xml
-vendor/lib64/libloc_socket.so
-vendor/lib64/vendor.qti.gnss@1.0.so
-vendor/lib64/vendor.qti.gnss@1.1.so
-vendor/lib64/vendor.qti.gnss@1.2.so
-vendor/lib64/vendor.qti.gnss@2.0.so
-vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0.so
-vendor/lib64/vendor.qti.gnss@4.0.so
-vendor/lib64/vendor.qti.gnss@4.1-service.so
-vendor/lib64/vendor.qti.gnss@4.1.so
-
-# GNSS (IMPL)
-vendor/lib64/hw/vendor.qti.gnss@4.1-impl.so
-vendor/lib64/libcdfw.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libizat_client_api.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so
-vendor/lib64/libloc_api_v02.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/libpdmapper.so
-vendor/lib64/libsynergy_loc_api.so
-vendor/lib64/libxtadapter.so
-
 # Graphics
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
@@ -293,6 +253,7 @@ vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
+vendor/lib64/libpdmapper.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqmi.so
 vendor/lib64/libqmi_cci.so
