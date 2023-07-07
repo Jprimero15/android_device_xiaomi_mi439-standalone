@@ -158,6 +158,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # IMS
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.3 \
