@@ -113,3 +113,7 @@ on property:vendor.post_boot.parsed=1
     write /dev/cpuset/camera-daemon/cpus "0-7"
     write /dev/cpuset/restricted/cpus "4-7"
     write /dev/cpuset/system-background/cpus "4-7"
+
+    # Charging
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0666 /sys/class/power_supply/battery/input_suspend
