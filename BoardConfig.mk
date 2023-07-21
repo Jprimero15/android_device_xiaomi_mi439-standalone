@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2017-2022 The LineageOS Project
-# Copyright (C) 2023 Paranoid Android
+# Copyright (C) 2024 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -114,9 +114,9 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := # blank
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := sdm439-perf_defconfig
+KERNEL_DEFCONFIG := vendor/msm8937-perf_defconfig
+KERNEL_FRAGMENT_CONFIG := vendor/xiaomi-sdm439.config
 KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
