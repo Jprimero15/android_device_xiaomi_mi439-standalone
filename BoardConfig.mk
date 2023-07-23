@@ -122,6 +122,7 @@ KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
 TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
@@ -229,4 +230,8 @@ ifeq ($(TARGET_KERNEL_VERSION),4.9)
 include vendor/xiaomi/mi439/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
+endif
+
+# Include our Qualcomm Board configuration.
+include device/qcom/common/BoardConfigQcom.mk
 endif

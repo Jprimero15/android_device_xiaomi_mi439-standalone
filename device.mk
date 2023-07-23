@@ -141,6 +141,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0.vendor \
+    android.hidl.manager@1.0 \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor \
+    android.hidl.allocator@1.0.vendor
+
 # IMS
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.3 \
@@ -303,6 +314,13 @@ TARGET_COMMON_QTI_COMPONENTS += \
     telephony \
     usb
 
+# QTI framework detect
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti \
+    libvndfwk_detect_jni.qti.vendor
+
 # Remove packages
 PRODUCT_PACKAGES += \
     RemovePackages
@@ -331,6 +349,35 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Telephony - CLO
+PRODUCT_PACKAGES += \
+    extphonelib \
+    extphonelib-product \
+    extphonelib.xml \
+    extphonelib_product.xml \
+    ims-ext-common \
+    ims_ext_common.xml
+
+PRODUCT_PACKAGES += \
+    tcmiface \
+    telephony-ext \
+    qti-telephony-hidl-wrapper \
+    qti-telephony-hidl-wrapper-prd \
+    qti_telephony_hidl_wrapper.xml \
+    qti_telephony_hidl_wrapper_prd.xml \
+    qti-telephony-utils \
+    qti-telephony-utils-prd \
+    qti_telephony_utils.xml \
+    qti_telephony_utils_prd.xml
+
+# Telephony - AOSP
+PRODUCT_PACKAGES += \
+    Stk
+
+PRODUCT_BOOT_JARS += \
+    tcmiface \
+    telephony-ext
 
 # Thermal
 ifneq ($(TARGET_KERNEL_VERSION),4.19)
@@ -379,3 +426,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivelite.xml \
     $(LOCAL_PATH)/configs/miuicam/olive.xml:$(TARGET_COPY_OUT_VENDOR)/etc/device_features/olivewood.xml
 endif
+
+# Qualcomm Common
+$(call inherit-product, device/qcom/common/common.mk)
