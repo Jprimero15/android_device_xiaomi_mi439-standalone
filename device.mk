@@ -141,6 +141,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# HIDL
+MITHORIUM_PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0.vendor \
+    android.hidl.manager@1.0 \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor \
+    android.hidl.allocator@1.0.vendor
+
 # IMS
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.3 \

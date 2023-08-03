@@ -10,6 +10,10 @@ DEVICE_PATH := device/xiaomi/mi439
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# ROS
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_USES_COLOR_METADATA := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -122,6 +126,7 @@ KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
 TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
@@ -230,3 +235,6 @@ include vendor/xiaomi/mi439/BoardConfigVendor.mk
 else ifeq ($(TARGET_KERNEL_VERSION),4.19)
 include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
 endif
+
+# Inherit from ReloadedOS configuration
+include vendor/reloaded/config/BoardConfigReloaded.mk
