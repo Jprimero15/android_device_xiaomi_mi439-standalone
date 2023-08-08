@@ -194,9 +194,3 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
-
-service vendor.sensors.qti /vendor/bin/sensors.qti
-    class core
-    user system
-    group system
-    disabled
