@@ -351,6 +351,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Vanilla
+TARGET_DISABLES_GMS := true
+
+PRODUCT_PACKAGES += \
+    Dialer
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mi439/mi439-vendor.mk)
 
