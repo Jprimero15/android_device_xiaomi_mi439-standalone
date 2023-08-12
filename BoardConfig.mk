@@ -121,7 +121,6 @@ TARGET_KERNEL_CONFIG := sdm439-perf_defconfig
 KERNEL_LLVM_SUPPORT := true
 KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
-TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
