@@ -35,6 +35,7 @@
 /dev/lirc0	u:object_r:ir_device:s0
 
 # OverlayFS
+/(vendor|system/vendor)/overlayfs/[a-z]+/etc/camera(/.*)?			u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/overlayfs/[a-z]+/etc/sensors/sensor_def_qcomdev.conf	u:object_r:vendor_configs_file:s0
 
 # Partitions
