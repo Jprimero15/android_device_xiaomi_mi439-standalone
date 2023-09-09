@@ -34,6 +34,7 @@ start_sensors()
 
     chmod -h 664 /persist/sensors/sensors_settings
     chown -h -R system.system /persist/sensors
+    start vendor.sensors.qti
 
 }
 
