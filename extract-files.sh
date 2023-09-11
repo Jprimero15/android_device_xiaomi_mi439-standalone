@@ -28,15 +28,11 @@ source "${HELPER}"
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-KERNEL_4_19=
 KANG=
 SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --kernel-4.19 )
-                KERNEL_4_19=true
-                ;;
         -n | --no-cleanup )
                 CLEAN_VENDOR=false
                 ;;
@@ -72,16 +68,8 @@ function blob_fixup() {
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-if [ "${KERNEL_4_19}" != "true" ]; then
-    # Kernel 4.9
-    extract "${MY_DIR}/proprietary-files/4.9/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    extract "${MY_DIR}/proprietary-files/4.9/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-else
-    # Kernel 4.19
-    extract "${MY_DIR}/proprietary-files/4.19/qcom-system.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-    extract "${MY_DIR}/proprietary-files/4.19/qcom-vendor-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-fi
+extract "${MY_DIR}/proprietary-files-qc-sys.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+extract "${MY_DIR}/proprietary-files-qc-vndr.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+extract "${MY_DIR}/proprietary-files-qc-vndr-32.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

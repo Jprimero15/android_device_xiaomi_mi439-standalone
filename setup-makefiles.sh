@@ -25,15 +25,6 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-while [ "${#}" -gt 0 ]; do
-    case "${1}" in
-        --kernel-4.19 )
-                KERNEL_4_19=true
-                ;;
-    esac
-    shift
-done
-
 # Initialize the helper for device
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
@@ -42,17 +33,9 @@ write_headers
 
 # The standard device blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-if [ "${KERNEL_4_19}" != "true" ]; then
-   # Kernel 4.9
-   write_makefiles "${MY_DIR}/proprietary-files/4.9/qcom-system.txt" true
-   write_makefiles "${MY_DIR}/proprietary-files/4.9/qcom-vendor.txt" true
-   write_makefiles "${MY_DIR}/proprietary-files/4.9/qcom-vendor-32.txt" true
-else
-   # Kernel 4.19
-   write_makefiles "${MY_DIR}/proprietary-files/4.19/qcom-system.txt" true
-   write_makefiles "${MY_DIR}/proprietary-files/4.19/qcom-vendor.txt" true
-   write_makefiles "${MY_DIR}/proprietary-files/4.19/qcom-vendor-32.txt" true
-fi
+write_makefiles "${MY_DIR}/proprietary-files-qc-sys.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-qc-vndr.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-qc-vndr-32.txt" true
 
 # Finish
 write_footers

@@ -94,7 +94,7 @@ BOARD_SHIPPING_API_LEVEL := 30
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest_k$(TARGET_KERNEL_VERSION).xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest_k4.9.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_sdm439
@@ -177,9 +177,6 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
-ifeq ($(TARGET_KERNEL_VERSION),4.19)
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor_k4.19.prop
-endif
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
@@ -221,8 +218,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
-ifeq ($(TARGET_KERNEL_VERSION),4.9)
 include vendor/xiaomi/mi439/BoardConfigVendor.mk
-else ifeq ($(TARGET_KERNEL_VERSION),4.19)
-include vendor/xiaomi/mi439-4.19/BoardConfigVendor.mk
-endif

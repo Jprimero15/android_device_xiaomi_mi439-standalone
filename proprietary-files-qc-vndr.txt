@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# All unpinned blobs below are extracted from LA.UM.9.6.3.r1-06200-89xx.0
 # PAN Package version: Nokia/Panther_00WW/PAN_sprout:11/RKQ1.200928.002/00WW_3_240:user/release-keys
 
 # ADSP
