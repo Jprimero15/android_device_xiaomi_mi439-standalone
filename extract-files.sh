@@ -61,6 +61,9 @@ function blob_fixup() {
                 "${PATCHELF}" --add-needed "libshim_imscamera.so" "${2}"
             done
             ;;
+        vendor/lib/libts_detected_face_hal.so|vendor/lib/libts_face_beautify_hal.so)
+            "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
     esac
 }
 
