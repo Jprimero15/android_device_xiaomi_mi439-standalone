@@ -7,6 +7,8 @@
 
 DEVICE_PATH := device/xiaomi/mi439
 
+BUILD_BROKEN_CLANG_PROPERTY := true
+
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
