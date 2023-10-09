@@ -127,7 +127,6 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_METADATA_PARTITION := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
