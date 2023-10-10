@@ -59,7 +59,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 # Bluetooth
-TARGET_USE_QTI_BT_STACK := false
+# TARGET_USE_QTI_BT_STACK := false
 
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
