@@ -335,7 +335,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi-service \
+    android.hardware.wifi@1.6.vendor \
     libcld80211 \
     libwifi-hal-ctrl \
     libwpa_client \
