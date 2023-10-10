@@ -162,7 +162,7 @@ $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 209715200)) # 200 MB
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 20971520)) # 20 MB
 
 # Partitions - reserved without gapps
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 838860800 # 800 MB
