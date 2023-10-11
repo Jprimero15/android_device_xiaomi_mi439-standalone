@@ -12,10 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package {
-    default_applicable_licenses: ["hardware_interfaces_license"],
-}
-
 soong_config_module_type {
     name: "wifi_hal_cc_defaults",
     module_type: "cc_defaults",
