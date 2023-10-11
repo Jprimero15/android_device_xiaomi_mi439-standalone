@@ -37,7 +37,7 @@ soong_config_module_type {
 }
 
 wifi_hal_cc_defaults {
-    name: "android.hardware.wifi@1.0-service-cppflags-defaults",
+    name: "android.hardware.wifi@1.0-mi439_service-cppflags-defaults",
     soong_config_variables: {
         hidl_feature_aware: {
             cppflags: ["-DWIFI_HIDL_FEATURE_AWARE"],
@@ -64,8 +64,8 @@ wifi_hal_cc_defaults {
 }
 
 cc_library_static {
-    name: "android.hardware.wifi@1.0-service-lib",
-    defaults: ["android.hardware.wifi@1.0-service-cppflags-defaults"],
+    name: "android.hardware.wifi@1.0-mi439_service-lib",
+    defaults: ["android.hardware.wifi@1.0-mi439_service-cppflags-defaults"],
     proprietary: true,
     compile_multilib: "first",
     cppflags: [
@@ -118,8 +118,8 @@ cc_library_static {
 }
 
 cc_binary {
-    name: "android.hardware.wifi@1.0-service",
-    vintf_fragments: ["android.hardware.wifi@1.0-service.xml"],
+    name: "android.hardware.wifi@1.0-service.mi439",
+    vintf_fragments: ["android.hardware.wifi@1.0-service.mi439.xml"],
     relative_install_path: "hw",
     proprietary: true,
     cppflags: [
@@ -146,14 +146,14 @@ cc_binary {
         "android.hardware.wifi@1.5",
         "android.hardware.wifi@1.6",
     ],
-    static_libs: ["android.hardware.wifi@1.0-service-lib"],
-    init_rc: ["android.hardware.wifi@1.0-service.rc"],
+    static_libs: ["android.hardware.wifi@1.0-mi439_service-lib"],
+    init_rc: ["android.hardware.wifi@1.0-service.mi439.rc"],
 }
 
 cc_binary {
-    name: "android.hardware.wifi@1.0-service-lazy",
-    vintf_fragments: ["android.hardware.wifi@1.0-service.xml"],
-    overrides: ["android.hardware.wifi@1.0-service"],
+    name: "android.hardware.wifi@1.0-service-lazy.mi439",
+    vintf_fragments: ["android.hardware.wifi@1.0-service.mi439.xml"],
+    overrides: ["android.hardware.wifi@1.0-service.mi439"],
     cflags: ["-DLAZY_SERVICE"],
     relative_install_path: "hw",
     proprietary: true,
@@ -181,12 +181,12 @@ cc_binary {
         "android.hardware.wifi@1.5",
         "android.hardware.wifi@1.6",
     ],
-    static_libs: ["android.hardware.wifi@1.0-service-lib"],
-    init_rc: ["android.hardware.wifi@1.0-service-lazy.rc"],
+    static_libs: ["android.hardware.wifi@1.0-mi439_service-lib"],
+    init_rc: ["android.hardware.wifi@1.0-service-lazy.mi439.rc"],
 }
 
 cc_test {
-    name: "android.hardware.wifi@1.0-service-tests",
+    name: "android.hardware.wifi@1.0-service-tests.mi439",
     proprietary: true,
     compile_multilib: "first",
     cppflags: [
@@ -217,7 +217,7 @@ cc_test {
         "android.hardware.wifi@1.4",
         "android.hardware.wifi@1.5",
         "android.hardware.wifi@1.6",
-        "android.hardware.wifi@1.0-service-lib",
+        "android.hardware.wifi@1.0-mi439_service-lib",
     ],
     shared_libs: [
         "libbase",
