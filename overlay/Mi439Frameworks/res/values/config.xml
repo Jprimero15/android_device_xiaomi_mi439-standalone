@@ -432,42 +432,4 @@
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
 
-   <!-- Enable ACS (auto channel selection) for Wifi hotspot (SAP) -->
-   <bool translatable="false" name="config_wifi_softap_acs_supported">false</bool>
-
-   <!-- Enable 802.11ac for Wifi hotspot (SAP) -->
-   <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">false</bool>
-
-   <!-- Indicates that connected MAC randomization is supported on this device -->
-   <bool translatable="false" name="config_wifi_connected_mac_randomization_supported">false</bool>
-
-    <!-- Indicates that p2p MAC randomization is supported on this device -->
-    <bool translatable="false" name="config_wifi_p2p_mac_randomization_supported">false</bool>
-
-    <!-- dual sap mode is supported on this device. -->
-    <bool name="config_wifi_dual_sap_mode_enabled">false</bool>
-
-    <!-- Set to true if the wifi display supports compositing content stored
-         in gralloc protected buffers.  For this to be true, there must exist
-         a protected hardware path for surface flinger to composite and send
-         protected buffers to the wifi display video encoder.
-
-         If this flag is false, we advise applications not to use protected
-         buffers (if possible) when presenting content to a wifi display because
-         the content may be blanked.
-
-         This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
-         flag is set for wifi displays.
-    -->
-    <bool name="config_wifiDisplaySupportsProtectedBuffers">false</bool>
-
-    <!-- List supported color modes. -->
-    <integer-array name="config_availableColorModes"></integer-array>
-
-    <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
-    <bool name="config_telephony5gStandalone">false</bool>
-
-    <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
-    <bool name="config_telephony5gNonStandalone">false</bool>
-
 </resources>
