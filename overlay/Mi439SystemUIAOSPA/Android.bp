@@ -6,5 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439SystemUIAOSPA",
-    vendor: true,
+    product_specific: true,
 }
