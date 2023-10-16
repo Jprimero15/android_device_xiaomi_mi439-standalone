@@ -7,7 +7,7 @@ genfscon sysfs /firmware/devicetree/base/model			u:object_r:fdt_model:s0
 genfscon sysfs /firmware/devicetree/base/soc/sound/qcom,model	u:object_r:fdt_sound:s0
 
 # FM
-genfscon sysfs /class/fm/fm_lan_enable/lan_enable		u:object_r:sysfs_fm_lan:s0
+genfscon sysfs /devices/virtual/fm/fm_lan_enable/lan_enable	u:object_r:sysfs_fm_lan:s0
 
 # Huaqin
 genfscon sysfs /class/huaqin/					u:object_r:huaqin_sysfs:s0
