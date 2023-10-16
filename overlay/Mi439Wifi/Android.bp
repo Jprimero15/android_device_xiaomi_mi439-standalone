@@ -6,5 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439Wifi",
-    vendor: true,
+    product_specific: true,
 }
