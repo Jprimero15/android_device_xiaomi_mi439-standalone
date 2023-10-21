@@ -11,6 +11,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# Customization
+$(call inherit-product, vendor/SystemUIClocks/product.mk)
+
 # 8937/sdm439 Platform
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.19
