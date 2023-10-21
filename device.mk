@@ -296,7 +296,8 @@ TARGET_COMMON_QTI_COMPONENTS += \
     overlay \
     perf \
     telephony \
-    usb
+    usb \
+    vibrator
 
 # Remove packages
 PRODUCT_PACKAGES += \
@@ -336,8 +337,8 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.3-service.xiaomi_sdm439
+#PRODUCT_PACKAGES += \
+#    android.hardware.vibrator@1.3-service.xiaomi_sdm439
 
 # Wifi
 PRODUCT_PACKAGES += \
