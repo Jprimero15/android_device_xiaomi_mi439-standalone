@@ -1,7 +1,0 @@
-<manifest version="1.0" type="device" target-level="4">
-    <hal format="hidl">
-        <name>android.hardware.configstore</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.1::ISurfaceFlingerConfigs/default</fqname>
-    </hal>
-</manifest>

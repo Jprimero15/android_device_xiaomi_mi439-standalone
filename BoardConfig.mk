@@ -93,8 +93,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_SHIPPING_API_LEVEL := 30
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest_k4.9.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_sdm439
