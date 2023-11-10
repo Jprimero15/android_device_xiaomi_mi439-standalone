@@ -461,8 +461,11 @@
     -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">false</bool>
 
-    <!-- List supported color modes. -->
-    <integer-array name="config_availableColorModes"></integer-array>
+    <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+    </integer-array>
 
     <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
     <bool name="config_telephony5gStandalone">false</bool>
