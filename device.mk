@@ -15,10 +15,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.9
 
-# APEX
-OVERRIDE_TARGET_FLATTEN_APEX := true
-OVERRIDE_PRODUCT_COMPRESSED_APEX := false
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
