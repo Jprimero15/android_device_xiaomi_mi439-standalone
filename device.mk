@@ -235,6 +235,7 @@ PRODUCT_PACKAGES += \
     Mi439CarrierConfig \
     Mi439STelephony \
     Mi439Wifi \
+    Mi439WifiMainline \
     Mi439Haptic \
     XiaomiOlive \
     XiaomiOliveSystemUI \
