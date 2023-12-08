@@ -154,8 +154,15 @@ ro.fastbootd.available=true
 # System
 persist.sys.binary_xml=false
 
-# Disable Skia tracing
+# Skia
 debug.hwui.skia_atrace_enabled=false
+renderthread.skia.reduceopstasksplitting=true
 
 # RIL
 ro.telephony.block_binder_thread_on_incoming_calls=false
+
+#expose aux camera for below packages
+vendor.camera.aux.packagelist=org.codeaurora.snapcam
+
+#Whitelisting the below packages
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam

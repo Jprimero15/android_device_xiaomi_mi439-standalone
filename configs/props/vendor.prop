@@ -34,7 +34,6 @@ persist.vendor.radio.mt_sms_ack=30
 af.fast_track_multiplier=1
 audio.offload.min.duration.secs=30
 drm.service.enabled=true
-persist.backup.ntpServer=0.pool.ntp.org
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicecomm=true
@@ -117,7 +116,6 @@ vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
 vendor.display.disable_skip_validate=1
-vendor.hw.fm.init=0
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 vendor.voice.conc.fallbackpath=deep-buffer
 vendor.voice.path.for.pcm.voip=true
@@ -177,11 +175,7 @@ vendor.camera.hal1.packagelist=com.facebook.katana,com.facebook.orca,com.instagr
 persist.vendor.camera.display.umax=1920x1080
 persist.vendor.camera.display.lmax=1280x720
 
-#expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam
-
 #Whitelisting the below packages
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam
 persist.camera.privapp.list=org.codeaurora.snapcam
 
 # Sensors
@@ -223,4 +217,3 @@ telephony.lteOnCdmaDevice=1
 # Skia
 debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
-renderthread.skia.reduceopstasksplitting=true
