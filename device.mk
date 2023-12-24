@@ -138,6 +138,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
+    android.hardware.health-service.qti.mi439 \
+    android.hardware.health-service.qti.mi439_recovery \
     vendor.lineage.health-service.default
 
 # IMS
