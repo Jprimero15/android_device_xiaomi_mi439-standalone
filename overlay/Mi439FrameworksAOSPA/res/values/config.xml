@@ -56,4 +56,19 @@
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
     <bool name="config_displayBlanksAfterDoze">false</bool>
 
+    <!-- Default component for QR code scanner -->
+    <string name="config_defaultQrCodeComponent" translatable="false">app.grapheneos.camera/app.grapheneos.camera.ui.activities.QrTile</string>
+
+    <!-- Build properties from a GMS certified device against current platform SPL level -->
+    <string-array name="config_certifiedBuildProperties" translatable="false">
+        <item>PRODUCT:himawhl_sprint_wwe</item>
+        <item>DEVICE:htc_himawhl</item>
+        <item>MANUFACTURER:HTC</item>
+        <item>BRAND:htc</item>
+        <item>MODEL:MSM8994 for arm64</item>
+        <item>FINGERPRINT:htc/himawhl_sprint_wwe/htc_himawhl:6.0/MRA58K/695981.4:user/release-keys</item>
+        <item>VERSION.SECURITY_PATCH:2016-01-01</item>
+        <item>VERSION.DEVICE_INITIAL_SDK_INT:25</item>
+    </string-array>
+
 </resources>

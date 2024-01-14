@@ -29,3 +29,6 @@ bluetooth.profile.sap.server.enabled?=true
 
 # Enable FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
+
+# Builder
+ro.aospa.version=Uvite Vanilla
