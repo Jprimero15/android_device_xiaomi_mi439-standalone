@@ -11,6 +11,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# Custom Clocks
+$(call inherit-product, vendor/SystemUIClocks/product.mk)
+
 # 8937/sdm439 Platform
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.9
@@ -351,6 +354,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+# Vanilla
+TARGET_DISABLES_GMS := true
+
+PRODUCT_PACKAGES += \
+    Dialer \
+    Etar \
+    ExactCalculator \
+    GrapheneOSCamera \
+    Jelly
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mi439/mi439-vendor.mk)
