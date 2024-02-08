@@ -38,13 +38,6 @@ prebuilt_etc {
 // Init scripts
 
 prebuilt_etc {
-    name: "init.baseband.proxy.rc",
-    src: "init.baseband.proxy.rc",
-    sub_dir: "init",
-    system_ext_specific: true,
-}
-
-prebuilt_etc {
     name: "init.mi439.perf.rc",
     src: "init.mi439.perf.rc",
     sub_dir: "init",
@@ -98,13 +91,6 @@ prebuilt_etc {
 sh_binary {
     name: "init.acdbdata.sh",
     src: "init.acdbdata.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.baseband.sh",
-    required: ["init.baseband.proxy.rc"],
-    src: "init.baseband.sh",
     vendor: true,
 }
 

@@ -12,14 +12,6 @@ on property:persist.vendor.audio.calfile0=*
     exec /bin/sleep 1s
     restart vendor.audio-hal
 
-# Baseband
-service vendor.baseband-sh /vendor/bin/init.baseband.sh
-    class late_start
-    user system
-    group system
-    oneshot
-    disabled
-
 # Camera
 on post-fs-data
     mkdir /data/vendor/qcam 0770 camera camera
