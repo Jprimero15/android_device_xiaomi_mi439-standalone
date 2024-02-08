@@ -1,12 +1,4 @@
 import /vendor/etc/init/hw/init.xiaomi.device.rc
-import /vendor/etc/init/hw/init.xiaomi.series.rc
-
-# Acdbdata
-service vendor.acdbdata-sh /vendor/bin/init.acdbdata.sh
-    class hal
-    user system
-    group system
-    oneshot
 
 on property:persist.vendor.audio.calfile0=*
     exec /bin/sleep 1s
