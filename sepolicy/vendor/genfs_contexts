@@ -42,6 +42,13 @@ genfscon sysfs /board_properties/virtualkeys.ist30xx_ts_input		u:object_r:sysfs_
 genfscon sysfs /devices/platform/soc/soc:vibrator_gpio/leds/vibrator	u:object_r:sysfs_vibrator:s0
 
 # Wakeup
+genfscon sysfs /devices/virtual/input/input0/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input1/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input2/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input3/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input4/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input5/wakeup										u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input6/wakeup										u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:gpio_keys/wakeup									u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1b0c000.qcom,cci/1b0c000.qcom,cci:qcom,camera@2/video4linux/video3/wakeup			u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pmi632@2:qcom,qpnp-smb5/wakeup	u:object_r:sysfs_wakeup:s0
