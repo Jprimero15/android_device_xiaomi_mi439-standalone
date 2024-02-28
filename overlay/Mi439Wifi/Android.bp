@@ -6,11 +6,11 @@
 
 runtime_resource_overlay {
     name: "Mi439Wifi",
-    product_specific: true,
+    vendor: true,
 }
 
 runtime_resource_overlay {
     name: "Mi439WifiMainline",
     manifest: "AndroidGoogleManifest.xml",
-    product_specific: true,
+    vendor: true,
 }

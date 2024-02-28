@@ -6,5 +6,5 @@
 
 runtime_resource_overlay {
     name: "Mi439Settings",
-    product_specific: true,
+    vendor: true,
 }
