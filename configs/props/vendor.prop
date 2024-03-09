@@ -1,8 +1,3 @@
-# Bluetooth
-persist.vendor.qcom.bluetooth.enable.splita2dp=false
-persist.vendor.qcom.bluetooth.soc=pronto
-ro.vendor.bluetooth.wipower=false
-
 # Camera
 persist.vendor.camera.HAL3.enabled=1
 persist.vendor.camera.stats.test=5
@@ -41,6 +36,8 @@ persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.hw.binder.size_kbyte=1024
 persist.vendor.audio.speaker.prot.enable=false
 persist.vendor.dpmhalservice.enable=1
+persist.vendor.qcom.bluetooth.enable.splita2dp=false
+persist.vendor.qcom.bluetooth.soc=pronto
 persist.vendor.qcomsysd.enabled=1
 ro.af.client_heap_size_kbyte=7168
 ro.frp.pst=/dev/block/bootdevice/by-name/config
@@ -49,6 +46,7 @@ ro.hardware.keystore_desede=true
 ro.hardware.vulkan=adreno
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
+ro.vendor.bluetooth.wipower=false
 ro.vendor.qti.config.swap=1
 sys.vendor.shutdown.waittime=500
 vendor.audio.dolby.ds2.enabled=false
