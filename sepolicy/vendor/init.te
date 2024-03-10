@@ -15,3 +15,10 @@ allow init sysfs_leds:lnk_file r_file_perms;
 # Mach
 allow init sysfs_mi439_mach:dir r_dir_perms;
 allow init sysfs_mi439_mach:file r_file_perms;
+
+# Perf
+allow init device_latency:chr_file rw_file_perms;
+allow init sysfs_battery_supply:file r_file_perms;
+allow init sysfs_devices_system_cpu:file rw_file_perms;
+allow init sysfs_kgsl:file rw_file_perms;
+allow init sysfs_msm_perf:file rw_file_perms;
