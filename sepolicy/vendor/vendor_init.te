@@ -34,3 +34,4 @@ set_prop(vendor_init, camera_prop)
 set_prop(vendor_init, vendor_bservice_prop);
 set_prop(vendor_init, vendor_qcom_ims_prop);
 set_prop(vendor_init, vendor_video_prop);
+set_prop(vendor_init, vendor_power_prop);
