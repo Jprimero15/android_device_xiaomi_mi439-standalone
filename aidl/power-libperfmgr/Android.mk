@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-ifneq (,$(findstring hardware/google/interfaces, $(PRODUCT_SOONG_NAMESPACES)))
-ifneq (,$(findstring hardware/google/pixel, $(PRODUCT_SOONG_NAMESPACES)))
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -61,6 +58,3 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_VINTF_FRAGMENTS := android.hardware.power-service.xiaomi.xml
 
 include $(BUILD_EXECUTABLE)
-
-endif
-endif
