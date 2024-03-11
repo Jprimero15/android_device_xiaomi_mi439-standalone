@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "XiaomiOliveAperture",
+    device_specific: true,
+}

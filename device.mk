@@ -237,6 +237,7 @@ PRODUCT_PACKAGES += \
     Mi439Haptic \
     Mi439DeviceAsWebcam \
     XiaomiOlive \
+    XiaomiOliveAperture \
     XiaomiOliveSystemUI \
     XiaomiPine
 
