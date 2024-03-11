@@ -270,6 +270,7 @@ PRODUCT_PACKAGES += \
     Mi439WifiMainline \
     Mi439Haptic \
     XiaomiOlive \
+    XiaomiOliveAperture \
     XiaomiOliveSystemUI \
     XiaomiPine
 

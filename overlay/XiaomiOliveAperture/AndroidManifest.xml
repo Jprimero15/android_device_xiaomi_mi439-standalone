@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.overlay.olive.aperture">
+
+    <application android:hasCode="false" />
+
+    <overlay
+      android:isStatic="true"
+      android:priority="800"
+      android:requiredSystemPropertyName="ro.vendor.xiaomi.device"
+      android:requiredSystemPropertyValue="olive"
+      android:targetPackage="org.lineageos.aperture" />
+</manifest>
