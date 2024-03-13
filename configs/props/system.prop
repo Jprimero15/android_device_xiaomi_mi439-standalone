@@ -167,7 +167,7 @@ renderthread.skia.reduceopstasksplitting=true
 ro.telephony.block_binder_thread_on_incoming_calls=false
 
 #expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam
+vendor.camera.aux.packagelist=com.android.camera,com.google.camera,org.lineageos.aperture
 
 #Whitelisting the below packages
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam
+persist.vendor.camera.privapp.list=com.android.camera,com.google.camera,org.lineageos.aperture
