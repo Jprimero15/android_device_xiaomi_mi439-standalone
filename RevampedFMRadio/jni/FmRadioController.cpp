@@ -85,7 +85,10 @@ FmRadioController :: ~FmRadioController
     }
     if(event_listener_thread != 0) {
         event_listener_canceled = true;
-        pthread_join(event_listener_thread, NULL);
+        int result = pthread_join(event_listener_thread, NULL);
+        if (result == 0) {
+            event_listener_thread = 0;
+        }
     }
 }
 
@@ -266,7 +269,10 @@ exit:
                                      V4L2_CID_PRV_STATE, FM_DEV_NONE);
 close_fd:
     event_listener_canceled = true;
-    pthread_join(event_listener_thread, NULL);
+    int result = pthread_join(event_listener_thread, NULL);
+    if (result == 0) {
+        event_listener_thread = 0;
+    }
     if (strcmp(value, "rome") != 0) {
         ret = FmIoctlsInterface::close_fm_patch_dl();
         if (ret != FM_SUCCESS) {
@@ -297,7 +303,11 @@ int FmRadioController ::Pwr_Down()
     if(event_listener_thread != 0) {
         ALOGD("%s, event_listener_thread cancelled\n", __func__);
         event_listener_canceled = true;
-        pthread_join(event_listener_thread, NULL);
+        int result = pthread_join(event_listener_thread, NULL);
+        //if thread is joined set event_listener_thread 0 to prevent crash
+        if (result == 0) {
+            event_listener_thread = 0;
+        }
     }
     if (strcmp(value, "rome") != 0) {
         ret = FmIoctlsInterface::close_fm_patch_dl();
