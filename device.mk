@@ -278,6 +278,7 @@ PRODUCT_PACKAGES += \
     Mi439Wifi \
     Mi439WifiMainline \
     Mi439Haptic \
+    Mi439DeviceAsWebcam \
     XiaomiOlive \
     XiaomiOliveAperture \
     XiaomiOliveSystemUI \
