@@ -31,5 +31,6 @@ bluetooth.profile.sap.server.enabled?=true
 persist.sys.fuse.passthrough.enable=true
 
 # USB
+ro.usb.uvc.enabled=true
 sys.usb.mtp.batchcancel=1
 vendor.usb.use_ffs_mtp=1
