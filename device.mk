@@ -348,6 +348,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# QMI
+PRODUCT_PACKAGES += \
+    libnetutils.vendor:64 \
+    libsqlite.vendor:64 \
+
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS += \
     alarm \
@@ -373,6 +378,7 @@ PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
+    libpower.vendor:64 \
     libsensorndkbridge
 
 # Shims
