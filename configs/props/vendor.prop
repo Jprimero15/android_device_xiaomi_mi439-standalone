@@ -7,6 +7,9 @@ ro.vendor.bluetooth.wipower=false
 persist.vendor.camera.HAL3.enabled=1
 persist.vendor.camera.stats.test=5
 
+# ConsumerIR
+ro.hardware.consumerir=umi
+
 # Display
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=0
