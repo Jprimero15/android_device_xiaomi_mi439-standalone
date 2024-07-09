@@ -159,7 +159,6 @@ PRODUCT_PACKAGES += \
     init.mi439.perf.rc \
     init.xiaomi.device.rc \
     init.qcom.rc \
-    init.olive.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     init.xiaomi.rc \
@@ -336,6 +335,7 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti.xiaomi_sdm439
 
 # USB HAL
+PRODUCT_HAS_GADGET_HAL := true
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
