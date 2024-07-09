@@ -126,6 +126,9 @@ vendor.voice.playback.conc.disabled=true
 vendor.voice.record.conc.disabled=false
 vendor.voice.voip.conc.disabled=true
 
+# USB
+vendor.usb.controller=msm_hsusb
+
 ### BEGIN Labeled as vendor in device/qcom/sepolicy-legacy-um
 
 #Property to enable display default color mode
