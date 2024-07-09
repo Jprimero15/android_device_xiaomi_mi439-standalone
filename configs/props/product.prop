@@ -29,3 +29,7 @@ bluetooth.profile.sap.server.enabled?=true
 
 # Enable FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
+
+# USB
+sys.usb.mtp.batchcancel=1
+vendor.usb.use_ffs_mtp=1
