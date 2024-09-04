@@ -407,12 +407,12 @@ LedVibratorDevice::LedVibratorDevice() {
          * nor whatever that should be passed to here.
          * You'll have to figure it out by looking up and/or trying.
          */
-        mMvMin = property_get_int32("vendor.qcom.vibrator.led.mv_min", 0);
+        mMvMin = property_get_int32("vendor.mi439.vibrator.led.mv_min", 0);
         if (mMvMin < 0) {
             ALOGE("Failed to get min mv for LED vibrator device");
             mMvMin = 0;
         }
-        mMvMax = property_get_int32("vendor.qcom.vibrator.led.mv_max", 0);
+        mMvMax = property_get_int32("vendor.mi439.vibrator.led.mv_max", 0);
         if (mMvMax < 0) {
             ALOGE("Failed to get max mv for LED vibrator device");
             mMvMax = 0;
@@ -423,11 +423,11 @@ LedVibratorDevice::LedVibratorDevice() {
         }
     }
 
-    mSupportEffects = !!property_get_bool("vendor.qcom.vibrator.led.enable_effects", 0);
+    mSupportEffects = !!property_get_bool("vendor.mi439.vibrator.led.enable_effects", 0);
     if (mSupportEffects) {
         ALOGI("Enable effects");
 
-        mEffectMsMultiplier = property_get_int32("vendor.qcom.vibrator.led.effect_ms_multiplier", 0);
+        mEffectMsMultiplier = property_get_int32("vendor.mi439.vibrator.led.effect_ms_multiplier", 0);
         if (mEffectMsMultiplier > 0) {
             ALOGI("Effect ms multiplier is %d", mEffectMsMultiplier);
         }
