@@ -118,7 +118,6 @@ TARGET_KERNEL_ARCH := arm64
 KERNEL_DEFCONFIG := vendor/msm8937-perf_defconfig
 KERNEL_FRAGMENT_CONFIG := vendor/xiaomi-sdm439.config
 KERNEL_LLVM_SUPPORT := true
-KERNEL_CUSTOM_LLVM := true
 KERNEL_SD_LLVM_SUPPORT := false
 
 # Partitions
