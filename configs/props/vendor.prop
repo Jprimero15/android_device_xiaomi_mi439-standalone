@@ -201,6 +201,12 @@ persist.vendor.camera.expose.logicId3=1
 # SoC info
 ro.soc.model=SDM439
 
+# Vibrator
+vendor.mi439.vibrator.led.enable_effects=true
+vendor.mi439.vibrator.led.effect_ms_multiplier=10
+vendor.mi439.vibrator.led.mv_min=1600
+vendor.mi439.vibrator.led.mv_max=3000
+
 ### END Unlabeled vendor props
 
 ### BEGIN system_vendor_config_prop

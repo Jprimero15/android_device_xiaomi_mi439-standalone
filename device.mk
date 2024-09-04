@@ -397,7 +397,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.3-service.xiaomi_sdm439
+    vendor.qti.hardware.vibrator.service.mi439
 
 # Wifi
 PRODUCT_PACKAGES += \
