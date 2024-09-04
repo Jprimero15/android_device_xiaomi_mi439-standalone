@@ -381,6 +381,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
+    libcrypto-v33 \
     libhidlbase_shim
 
 # Shipping API
