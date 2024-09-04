@@ -31,6 +31,9 @@ persist.audio.dirac.       u:object_r:dirac_prop:s0
 # Power
 vendor.powerhal.           u:object_r:vendor_power_prop:s0
 
+# Vibrator
+vendor.mi439.vibrator.     u:object_r:vendor_mi439_vibrator_prop:s0
+
 # Wifi
 vendor.wlan.driver.ath	u:object_r:vendor_wifi_version:s0
 

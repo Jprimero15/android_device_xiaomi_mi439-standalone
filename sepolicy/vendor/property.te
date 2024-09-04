@@ -7,5 +7,8 @@ vendor_public_prop(dirac_prop);
 # Power
 vendor_internal_prop(vendor_power_prop);
 
+# Vibrator
+vendor_internal_prop(vendor_mi439_vibrator_prop);
+
 # Xiaomi
 vendor_public_prop(vendor_xiaomi_prop);
