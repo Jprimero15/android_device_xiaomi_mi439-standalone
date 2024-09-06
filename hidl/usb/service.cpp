@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
 // Generated HIDL files
-using android::hardware::usb::V1_0::IUsb;
-using android::hardware::usb::V1_0::implementation::Usb;
+using android::hardware::usb::V1_3::IUsb;
+using android::hardware::usb::V1_3::implementation::Usb;
 
 int main() {
     android::sp<IUsb> service = new Usb();
