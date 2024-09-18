@@ -9,6 +9,8 @@ LOCAL_OVERRIDES_PACKAGES := \
     Drive \
     Gmail2 \
     Maps \
+    WifiResCommon_Sys \
+    WifiResCommonMainline_Sys \
     YouTube
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
