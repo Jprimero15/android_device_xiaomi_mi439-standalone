@@ -165,7 +165,7 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600)) # 100 MB
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 20971520)) # 20 MB
 
 ifeq ($(BLISS_BUILD_VARIANT), vanilla)
 # Partitions - reserved without gapps
