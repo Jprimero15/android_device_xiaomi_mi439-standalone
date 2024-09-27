@@ -15,12 +15,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_KERNEL_VERSION := 4.19
 
-# Vanilla
-TARGET_DISABLES_GMS := true
-
-PRODUCT_PACKAGES += \
-    Dialer
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
