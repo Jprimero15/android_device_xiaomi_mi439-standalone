@@ -350,6 +350,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     libcld80211 \
     libwifi-hal-ctrl \
+    libwifi-hal-qcom \
     libwpa_client \
     hostapd \
     wificond \
