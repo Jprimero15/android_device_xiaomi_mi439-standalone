@@ -1,50 +1,35 @@
 #!/vendor/bin/sh
 
+# Function to set audio calibration file properties
 set_acdb_path_props() {
 	i=0
-	for f in `ls /vendor/etc/acdbdata/${1}/*.*`; do
-		setprop "persist.vendor.audio.calfile${i}" "${f}"
-		let i+=1
+	for f in /vendor/etc/acdbdata/${1}/*.*; do
+		[ -f "$f" ] && setprop "persist.vendor.audio.calfile${i}" "$f"
+		i=$((i + 1))
 	done
 }
 
-case "$(cat /sys/xiaomi-sdm439-mach/codename)" in
+# Read the codename from the mi439 mach once
+codename="$(cat /sys/xiaomi-sdm439-mach/codename)"
+setprop ro.vendor.xiaomi.device "$codename"
+
+# Set properties based on codename
+case "$codename" in
 	"pine")
-		setprop ro.vendor.xiaomi.device pine
 		setprop ro.vendor.xiaomi.series pine
-		# Audio
 		set_acdb_path_props pine
 		;;
-	"olive")
-		setprop ro.vendor.xiaomi.device olive
+	"olive"|"olivelite"|"olivewood")
 		setprop ro.vendor.xiaomi.series olive
-		# Audio
 		set_acdb_path_props olive
-		# Camera
-		setprop persist.vendor.camera.aec.sync 1
-		setprop persist.vendor.camera.awb.sync 2
+		setprop persist.vendor.ctm.disallowed true
+		[ "$codename" = "olive" ] && {
+			setprop persist.vendor.camera.aec.sync 1
+			setprop persist.vendor.camera.awb.sync 2
+		}
 		setprop persist.vendor.camera.expose.aux 1
-		# Charger
-		setprop persist.vendor.ctm.disallowed true
 		;;
-	"olivelite")
-		setprop ro.vendor.xiaomi.device olivelite
-		setprop ro.vendor.xiaomi.series olive
-		# Audio
-		set_acdb_path_props olive
-		# Charger
-		setprop persist.vendor.ctm.disallowed true
-		;;
-	"olivewood")
-		setprop ro.vendor.xiaomi.device olivewood
-		setprop ro.vendor.xiaomi.series olive
-		# Audio
-		set_acdb_path_props olive
-		# Camera
-		setprop persist.vendor.camera.expose.aux 1
-		# Charger
-		setprop persist.vendor.ctm.disallowed true
-		;;
+	*) exit 0 ;;
 esac
 
 exit 0
