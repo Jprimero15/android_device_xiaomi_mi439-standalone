@@ -400,9 +400,6 @@ vendor/lib64/libwvhidl.so
 vendor/bin/ptt_socket_app
 vendor/bin/wcnss_service
 
-# WLAN - from Mi439 LOS21
-vendor/lib64/libwifi-hal.so
-
 # Misc
 vendor/etc/public.libraries.txt
 vendor/lib64/libsoc_helper.so
