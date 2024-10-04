@@ -1,11 +1,8 @@
-on late-init
-    chown system system /sys/class/qcom-haptics/primitive_duration
-    chmod 0600 /sys/class/qcom-haptics/primitive_duration
-
 service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service.mi439
     class hal
     user system
     group system input
 
-on late-init
-    write /sys/class/leds/vibrator/trigger "transient"
+on early-boot
+    chown system system /sys/class/leds/vibrator/vmax_mv
+    chmod 0600 /sys/class/leds/vibrator/vmax_mv
