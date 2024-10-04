@@ -9,41 +9,27 @@ set_acdb_path_props() {
 	done
 }
 
-# Read the codename from the mi439 mach once.
+# Read the codename from the mi439 mach once
 codename="$(cat /sys/xiaomi-sdm439-mach/codename)"
+setprop ro.vendor.xiaomi.device "$codename"
 
-# Set device and series properties based on the codename
+# Set properties based on codename
 case "$codename" in
 	"pine")
-		setprop ro.vendor.xiaomi.device pine
 		setprop ro.vendor.xiaomi.series pine
-		# Audio
 		set_acdb_path_props pine
 		;;
 	"olive"|"olivelite"|"olivewood")
-		setprop ro.vendor.xiaomi.device "$codename"
 		setprop ro.vendor.xiaomi.series olive
-		# Audio
 		set_acdb_path_props olive
-		# Charger
 		setprop persist.vendor.ctm.disallowed true
-		;;
-	*)
-		exit 0
-		;;
-esac
-
-# Camera
-if [ "$codename" = "olive" ]; then
-	setprop persist.vendor.camera.aec.sync 1
-	setprop persist.vendor.camera.awb.sync 2
-fi
-
-# Camera
-case "$codename" in
-	"olive"|"olivewood")
+		[ "$codename" = "olive" ] && {
+			setprop persist.vendor.camera.aec.sync 1
+			setprop persist.vendor.camera.awb.sync 2
+		}
 		setprop persist.vendor.camera.expose.aux 1
 		;;
+	*) exit 0 ;;
 esac
 
 exit 0
