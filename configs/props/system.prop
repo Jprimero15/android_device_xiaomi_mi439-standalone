@@ -89,8 +89,6 @@ hw.fm.internal_antenna=1
 #System property for FM transmitter
 ro.fm.transmitter=false
 
-#property to enable user to access Google WFD settings
-persist.debug.wfd.enable=1
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
 
