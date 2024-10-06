@@ -64,6 +64,9 @@ function blob_fixup() {
         vendor/etc/seccomp_policy/atfwd@2.0.policy)
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
             ;;
+        vendor/lib/libOmxVideoDSMode.so)
+            "${PATCHELF}" --replace-needed "libwfdmmservice.so" "libwfdmmservice_proprietary.so" "${2}"
+            ;;
         vendor/lib/libts_detected_face_hal.so|vendor/lib/libts_face_beautify_hal.so)
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
             ;;
