@@ -302,8 +302,7 @@ TARGET_COMMON_QTI_COMPONENTS += \
     overlay \
     perf \
     telephony \
-    usb \
-    wfd
+    usb
 
 # Remove packages
 PRODUCT_PACKAGES += \
