@@ -32,5 +32,6 @@ persist.sys.fuse.passthrough.enable=true
 
 # USB
 ro.usb.uvc.enabled=true
+ro.usb.uvc.payload_transfer_size=1024
 sys.usb.mtp.batchcancel=1
 vendor.usb.use_ffs_mtp=1
