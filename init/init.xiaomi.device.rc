@@ -71,6 +71,10 @@ on property:hw.fm.init=*
 on property:vendor.hw.fm.ant.enable=*
     write /sys/class/fm/fm_lan_enable/lan_enable ${vendor.hw.fm.ant.enable}
 
+# GPS
+on init
+    enable qccsyshal
+
 # IR
 on boot
     chown system system /dev/ir_spi
