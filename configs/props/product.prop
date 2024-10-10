@@ -43,3 +43,4 @@ ro.lmk.use_minfree_levels=true
 
 # USB
 ro.usb.uvc.enabled=true
+ro.usb.uvc.payload_transfer_size=1024
