@@ -92,6 +92,7 @@ vendor/lib/libllvm-qcom.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libMpeg4SwEncoder.so
+vendor/lib/libmmosal.so;MODULE=libmmosal_vendor
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAlacDec.so
 vendor/lib/libOmxAlacDecSw.so
