@@ -578,7 +578,7 @@ ndk::ScopedAStatus Vibrator::off() {
     int ret;
     int composeEven = STOP_COMPOSE;
 
-    ALOGD("QTI Vibrator off");
+    ALOGV("QTI Vibrator off");
     if (ledVib.mDetected)
         ret = ledVib.off();
     else
