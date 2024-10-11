@@ -113,7 +113,7 @@ ndk::ScopedAStatus LedVibratorDevice::perform(Effect effect, EffectStrength es,
     if (!mSupportEffects)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 
-    ALOGD("Vibrator perform effect %d", effect);
+    ALOGV("Vibrator perform effect %d", effect);
 
     int32_t playLengthMs = effectToMs(effect);
     if (!playLengthMs) {
@@ -138,9 +138,9 @@ ndk::ScopedAStatus LedVibratorDevice::perform(Effect effect, EffectStrength es,
 
     if (callback != nullptr) {
         std::thread([=] {
-            ALOGD("Starting perform on another thread");
+            ALOGV("Starting perform on another thread");
             usleep(playLengthMs * 1000);
-            ALOGD("Notifying perform complete");
+            ALOGV("Notifying perform complete");
             callback->onComplete();
         }).detach();
     }
@@ -153,7 +153,7 @@ ndk::ScopedAStatus LedVibratorDevice::setAmplitude(float amplitude) {
     if (!mSupportAmplitude)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 
-    ALOGD("Vibrator set amplitude: %f", amplitude);
+    ALOGV("Vibrator set amplitude: %f", amplitude);
 
     if (amplitude <= 0.0f || amplitude > 1.0f) {
         ALOGE("Invalid amplitude");
@@ -161,7 +161,7 @@ ndk::ScopedAStatus LedVibratorDevice::setAmplitude(float amplitude) {
     }
 
     uint32_t mv = mMvMin + ((mMvMax - mMvMin) * amplitude);
-    ALOGD("Vibrator set mv: %u", mv);
+    ALOGV("Vibrator set mv: %u", mv);
 
     if (write_value("/sys/class/leds/vibrator/vmax_mv", std::to_string(mv).c_str()) < 0) {
         ALOGE("Failed to write to vmax_mv");
