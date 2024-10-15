@@ -1,9 +1,8 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2022 The LineageOS Project
-# Copyright (C) 2023 Paranoid Android
-#
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2024 Paranoid Android
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -25,17 +24,22 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# Initialize the helper for device
+function vendor_imports() {
+    cat <<EOF >>"$1"
+		"device/xiaomi/mi439",
+EOF
+}
+
+# Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
 # Warning headers and guards
 write_headers
 
-# The standard device blobs
-write_makefiles "${MY_DIR}/proprietary-files.txt" true
-write_makefiles "${MY_DIR}/proprietary-files-qc-sys.txt" true
-write_makefiles "${MY_DIR}/proprietary-files-qc-vndr.txt" true
-write_makefiles "${MY_DIR}/proprietary-files-qc-vndr-32.txt" true
+write_makefiles "${MY_DIR}/proprietary-files.txt"
+write_makefiles "${MY_DIR}/proprietary-files-qc-sys.txt"
+write_makefiles "${MY_DIR}/proprietary-files-qc-vndr.txt"
+write_makefiles "${MY_DIR}/proprietary-files-qc-vndr-32.txt"
 
 # Finish
 write_footers
