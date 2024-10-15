@@ -1,9 +1,8 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2022 The LineageOS Project
-# Copyright (C) 2024 Paranoid Android
-#
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2024 Paranoid Android
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -33,19 +32,20 @@ SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"; shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -57,26 +57,40 @@ fi
 function blob_fixup() {
     case "${1}" in
         system_ext/lib64/lib-imscamera.so)
+            [ "$2" = "" ] && return 0
             for LIBSHIM_IMSVIDEOCODEC in $(grep -L "libshim_imscamera.so" "${2}"); do
                 "${PATCHELF}" --add-needed "libshim_imscamera.so" "${2}"
             done
             ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy)
+            [ "$2" = "" ] && return 0
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
             ;;
         vendor/lib/libts_detected_face_hal.so|vendor/lib/libts_face_beautify_hal.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
             ;;
         vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
+            [ "$2" = "" ] && return 0
             sed -i "s/libhidltransport.so/libhidlbase_shim.so/" "${2}"
             ;;
         vendor/lib64/libwvhidl.so|vendor/lib64/mediadrm/libwvdrmengine.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
             ;;
+        *)
+            return 1
+            ;;
     esac
+
+    return 0
 }
 
-# Initialize the helper for device
+function blob_fixup_dry() {
+    blob_fixup "$1" ""
+}
+
+# Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
