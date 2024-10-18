@@ -163,7 +163,7 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := -1))
 
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600)) # 100 MB
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 52428800)) # 50 MB
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 20971520)) # 20 MB
 
