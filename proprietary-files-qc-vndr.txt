@@ -96,11 +96,11 @@ vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 -vendor/app/IWlanService/IWlanService.apk
 vendor/bin/cnd
 vendor/etc/init/cnd.rc
-vendor/lib64/libcne.so
+vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libwms.so
-vendor/lib64/libwqe.so
+vendor/lib64/libwqe.so;DISABLE_CHECKELF
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
 vendor/lib64/vendor.qti.data.factory@2.2.so
@@ -235,7 +235,7 @@ vendor/lib64/libhdr_tm.so
 vendor/lib64/libscalar.so
 vendor/lib64/libsdedrm.so
 vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdm-diag.so;DISABLE_CHECKELF
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
@@ -367,7 +367,7 @@ vendor/lib64/libxml.so
 vendor/bin/irsc_util
 
 # QMI (QRTR)
-vendor/bin/qrtr-ns
+vendor/bin/qrtr-ns;DISABLE_CHECKELF
 vendor/lib64/libqrtr.so
 
 # RIL (ATFWD)
@@ -414,7 +414,7 @@ vendor/bin/rmt_storage
 vendor/etc/init/vendor.qti.rmt_storage.rc
 
 # RIL (TFTP)
-vendor/bin/tftp_server
+vendor/bin/tftp_server;DISABLE_CHECKELF
 vendor/etc/init/vendor.qti.tftp.rc
 vendor/lib64/libqsocket.so
 
