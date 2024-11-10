@@ -26,7 +26,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudiopreprocessing \
     libaudioroute \
-    libaudioroute.vendor \
     libaacwrapper \
     libaudio-resampler \
     libqcomvisualizer \
@@ -222,10 +221,7 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw \
-    libgui_vendor \
-    libstagefright_softomx.vendor \
-    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+    libstagefrighthw
 
 # Overlays RRO
 PRODUCT_PACKAGES += \
