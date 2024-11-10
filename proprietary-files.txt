@@ -146,6 +146,8 @@ vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
 vendor/lib/libsymphony-cpu.so
 vendor/lib/libsymphonypower.so
+vendor/lib/libwa_megface.so
+vendor/lib/libwa_rtdof.so
 vendor/lib64/libmmcamera2_frame_algorithm.so
 vendor/lib64/libmmcamera2_is.so
 vendor/lib64/libmmcamera2_q3a_core.so
