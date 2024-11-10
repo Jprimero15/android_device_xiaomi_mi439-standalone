@@ -39,7 +39,6 @@ write_headers
 write_makefiles "${MY_DIR}/proprietary-files.txt"
 write_makefiles "${MY_DIR}/proprietary-files-qc-sys.txt"
 write_makefiles "${MY_DIR}/proprietary-files-qc-vndr.txt"
-write_makefiles "${MY_DIR}/proprietary-files-qc-vndr-32.txt"
 
 # Finish
 write_footers
