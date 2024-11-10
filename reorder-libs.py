@@ -12,7 +12,6 @@ from pathlib import Path
 FILES = [Path(file) for file in [
     "proprietary-files-qc-sys.txt",
     "proprietary-files-qc-vndr.txt",
-    "proprietary-files-qc-vndr-32.txt",
 ]]
 
 setlocale(LC_ALL, "C")
