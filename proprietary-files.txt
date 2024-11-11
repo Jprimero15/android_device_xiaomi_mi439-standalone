@@ -3440,9 +3440,6 @@ vendor/etc/camera/vdclear_hht_params_i.xml
 vendor/etc/camera/vdclear_hht_params_ii.xml
 vendor/etc/camera/vdclear_hht_params_iii.xml
 
-# Consumer IR
-vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.msm8937.so
-
 # Consumer IR - from umi
 vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.umi.so|c5c8947ace6c6479914a57ad609a961eebf0b949
 
