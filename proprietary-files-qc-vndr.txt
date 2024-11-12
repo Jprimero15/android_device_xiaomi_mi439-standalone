@@ -224,8 +224,6 @@ vendor/bin/mm-pp-dpps
 vendor/lib64/libdisp-aba.so
 
 # Graphics (Postprocessing) - vendor.display.color
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/etc/init/vendor.display.color@1.0-service.rc
 vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.postproc@1.0.so
