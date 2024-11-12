@@ -14,7 +14,7 @@ system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so
 system_ext/lib64/lib-imscamera.so
 
 # Telephony (NetworkSetting)
--system_ext/app/NetworkSetting/NetworkSetting.apk
+system_ext/app/NetworkSetting/NetworkSetting.apk
 
 # Telephony (uimremoteclient)
 system_ext/etc/permissions/uimremoteclient.xml
