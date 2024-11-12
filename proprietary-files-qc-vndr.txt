@@ -298,12 +298,9 @@ vendor/lib/libOmxApeDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxG711Dec.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libvpplibrary.so
-vendor/lib/libwfdcommonutils_proprietary.so
-vendor/lib/libwfdmmservice.so
 vendor/lib64/libmmosal.so;MODULE=libmmosal_vendor
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxAlacDec.so
