@@ -40,7 +40,7 @@ vendor/lib/libadm.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
--vendor/lib/libaudioparsers.so
+vendor/lib/libaudioparsers.so
 vendor/lib/libbluetooth_audio_session_qti.so
 vendor/lib/libdiag.so
 vendor/lib/libdrc.so
@@ -82,18 +82,18 @@ vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/libbluetooth_audio_session_qti_2_1.so
 
 # CACert
--vendor/app/CACertService/CACertService.apk
+vendor/app/CACertService/CACertService.apk
 vendor/lib64/libcacertclient.so
 vendor/lib64/libjnihelper.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
 # Camera libts - from riva
--vendor/lib/libts_detected_face_hal.so
--vendor/lib/libts_face_beautify_hal.so
+vendor/lib/libts_detected_face_hal.so
+vendor/lib/libts_face_beautify_hal.so
 
 # CNE
--vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
--vendor/app/IWlanService/IWlanService.apk
+vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
+vendor/app/IWlanService/IWlanService.apk
 vendor/bin/cnd
 vendor/etc/init/cnd.rc
 vendor/lib64/libcne.so;DISABLE_CHECKELF
@@ -456,7 +456,7 @@ vendor/etc/init/init_thermal-engine.rc
 vendor/lib64/libthermalclient.so
 
 # Time
--vendor/app/TimeService/TimeService.apk
+vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
@@ -469,7 +469,7 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 # Widevine - from PAN
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libcpion.so
 vendor/lib64/libhdcpsrm.so
