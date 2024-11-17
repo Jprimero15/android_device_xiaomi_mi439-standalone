@@ -27,8 +27,8 @@ source "${HELPER}"
 function vendor_imports() {
     cat <<EOF >>"$1"
         "device/xiaomi/mi439",
-        "hardware/qcom/display",
-        "hardware/qcom/display/gralloc",
+        "hardware/mithorium-4.19/display-hal",
+        "hardware/mithorium-4.19/display-hal/gralloc",
         "vendor/qcom/common/vendor/display",
         "vendor/qcom/common/vendor/display/4.19",
         "vendor/qcom/common/vendor/gps-legacy",
