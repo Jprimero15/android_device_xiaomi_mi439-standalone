@@ -13,6 +13,12 @@ system_ext/etc/permissions/com.qualcomm.qti.imscmservice.xml
 system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so
 system_ext/lib64/lib-imscamera.so
 
+# Perf
+system_ext/lib/vendor.qti.qspmhal@1.0.so
+system_ext/lib/vendor.qti.qspmhal-V1-ndk.so
+system_ext/lib64/vendor.qti.qspmhal@1.0.so
+system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so
+
 # Telephony (NetworkSetting)
 system_ext/app/NetworkSetting/NetworkSetting.apk
 
