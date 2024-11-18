@@ -31,7 +31,7 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 # Audio
 #vendor/lib/libssrec.so
 vendor/lib/hw/sound_trigger.primary.msm8937.so
-vendor/lib/btaudio_offload_if.so
+vendor/lib/btaudio_offload_if.so;DISABLE_DEPS
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
