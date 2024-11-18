@@ -14,8 +14,10 @@ system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so
 system_ext/lib64/lib-imscamera.so
 
 # Perf
+system_ext/lib/libqspm-mem-utils.so
 system_ext/lib/vendor.qti.qspmhal@1.0.so
 system_ext/lib/vendor.qti.qspmhal-V1-ndk.so
+system_ext/lib64/libqspm-mem-utils.so
 system_ext/lib64/vendor.qti.qspmhal@1.0.so
 system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so
 
