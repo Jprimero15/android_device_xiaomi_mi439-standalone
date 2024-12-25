@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2024 Paranoid Android
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+   <!-- Property to read for ROM version -->
+   <string name="property_version">ro.aospa.version.string</string>
+
+   <!-- Property to read for device identifier -->
+   <string name="property_device">ro.aospa.device</string>
+
+   <!-- %s is expanded to property_version value. .zip, .delta, .update, .sign extensions added when needed -->
+   <string name="filename_base">aospa-%s</string>
+
+   <!-- Path deltas are stored, relative to sdcard root -->
+   <string name="path_base">OpenDelta</string>
+
+   <!-- URL base to find .update and .sign files, %s is expanded to property_device value. Path is suffixed by (expanded) filename_base -->
+   <string name="url_base_update">https://sourceforge.net/projects/aospa-mi439/files/%s/</string>
+
+   <!-- URL base to find the full zip files, %s is replaced to be property_device value. -->
+   <string name="url_base_full">https://sourceforge.net/projects/aospa-mi439/files/%s/</string>
+
+   <!-- URL base to find the full zip sha256sum files, %s is replaced to be property_device value. -->
+   <string name="url_base_full_sum">https://sourceforge.net/projects/aospa-mi439/files/%s/</string>
+
+   <!-- URL base suffix - Used only for download -->
+   <string name="url_base_suffix"></string>
+
+   <!-- the branch name to format URLs with -->
+   <string name="url_branch_name">full-signed</string>
+
+   <!-- URL base to fetch all builds. first %s is replaced by branch name later on by property_device -->
+   <string name="url_base_json" formatted="false">https://raw.githubusercontent.com/Jprimero15/ota/%s/%s/%s.json</string>
+
+   <!-- github API url, pointing to the OTA json repo. %s formatted as described above -->
+   <string name="url_api_history" formatted="false">https://api.github.com/repos/Jprimero15/ota/commits?sha=%s&amp;path=%s/%s.json</string>
+
+   <!-- Whether device supports A/B performance flashing -->
+   <item name="support_ab_perf_mode" type="bool">false</item>
+
+   <!-- Applies to A-only devices only, should be overlayed from DT -->
+   <item name="use_twrp" type="bool">true</item>
+
+   <string name="android_version">ro.build.version.release</string>
+
+</resources>
