@@ -283,6 +283,9 @@ PRODUCT_PACKAGES += \
     XiaomiOliveSystemUI \
     XiaomiPine
 
+PRODUCT_PACKAGES += \
+    NcmTetheringOverlay
+
 ifeq ($(USE_GRAPHENEOS_CAM), true)
 PRODUCT_PACKAGES += \
     GrapheneFrameworks
