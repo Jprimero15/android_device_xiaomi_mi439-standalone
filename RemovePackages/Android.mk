@@ -9,6 +9,7 @@ LOCAL_OVERRIDES_PACKAGES := \
     Drive \
     Gmail2 \
     Maps \
+    Photos \
     WifiResCommon_Sys \
     WifiResCommonMainline_Sys \
     YouTube
