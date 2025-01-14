@@ -58,6 +58,8 @@ TARGET_SCREEN_HEIGHT := 1440
 TARGET_SCREEN_WIDTH := 720
 
 # Camera
+TARGET_USES_YCRCB_CAMERA_ENCODE := true
+
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
@@ -82,14 +84,16 @@ PRODUCT_PACKAGES += \
 TARGET_EXCLUDE_CRYPTFSHW := true
 
 # Display
+TARGET_USES_HWC2 := true
+TARGET_USES_GRALLOC4 := true
+
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    gralloc.msm8937 \
-    hwcomposer.msm8937 \
-    libdisplayconfig \
+    gralloc.qcom \
+    hwcomposer.qcom \
     libgralloc.qti \
     libqdMetaData \
     libtinyxml \
