@@ -205,6 +205,8 @@ PRODUCT_PACKAGES += \
     init.qti.qseecomd.sh \
     init.xiaomi.device.sh
 
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_sdm439)
+
 # Input
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/)
