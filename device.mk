@@ -341,7 +341,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/bliss/interfaces/power-libperfmgr
+    hardware/lineage/interfaces/power-libperfmgr
 
 # Powerhint
 PRODUCT_COPY_FILES += \
